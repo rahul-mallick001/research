@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="lbmBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#022c22"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+    <marker id="lbmArr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 z" fill="#34d399"/>
+    </marker>
+    <marker id="flowArr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="480" rx="12" fill="url(#lbmBg)"/>
+  
+  <text x="30" y="42" fill="#6ee7b7" font-family="system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="1.5">LATTICE BOLTZMANN METHOD (LBM) MESOSCOPIC SOLVER</text>
+  <text x="30" y="68" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">D2Q9 Velocity Stencils &amp; Hydrodynamic Vortex Shedding</text>
+
+  <!-- Left Side: D2Q9 Velocity Stencil Diagram -->
+  <g id="d2q9Stencil">
+    <rect x="50" y="95" width="280" height="280" rx="10" fill="#065f46" fill-opacity="0.5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="70" y="125" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">D2Q9 Discrete Velocities (c_i)</text>
+
+    <!-- Lattice Grid Lines -->
+    <line x1="110" y1="150" x2="270" y2="150" stroke="#047857" stroke-dasharray="2,2"/>
+    <line x1="110" y1="230" x2="270" y2="230" stroke="#047857" stroke-dasharray="2,2"/>
+    <line x1="110" y1="310" x2="270" y2="310" stroke="#047857" stroke-dasharray="2,2"/>
+    <line x1="110" y1="150" x2="110" y2="310" stroke="#047857" stroke-dasharray="2,2"/>
+    <line x1="190" y1="150" x2="190" y2="310" stroke="#047857" stroke-dasharray="2,2"/>
+    <line x1="270" y1="150" x2="270" y2="310" stroke="#047857" stroke-dasharray="2,2"/>
+
+    <!-- Center node (c_0 = 0) -->
+    <circle cx="190" cy="230" r="7" fill="#f59e0b"/>
+    <text x="195" y="222" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">c_0(0,0)</text>
+
+    <!-- c_1 (1,0) East -->
+    <line x1="190" y1="230" x2="265" y2="230" stroke="#34d399" stroke-width="2" marker-end="url(#lbmArr)"/>
+    <text x="272" y="234" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="11">c_1</text>
+    <!-- c_2 (0,1) North -->
+    <line x1="190" y1="230" x2="190" y2="155" stroke="#34d399" stroke-width="2" marker-end="url(#lbmArr)"/>
+    <text x="184" y="146" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="11">c_2</text>
+    <!-- c_3 (-1,0) West -->
+    <line x1="190" y1="230" x2="115" y2="230" stroke="#34d399" stroke-width="2" marker-end="url(#lbmArr)"/>
+    <text x="96" y="234" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="11">c_3</text>
+    <!-- c_4 (0,-1) South -->
+    <line x1="190" y1="230" x2="190" y2="305" stroke="#34d399" stroke-width="2" marker-end="url(#lbmArr)"/>
+    <text x="184" y="325" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="11">c_4</text>
+    
+    <!-- Diagonals: c_5, c_6, c_7, c_8 -->
+    <line x1="190" y1="230" x2="265" y2="155" stroke="#10b981" stroke-width="1.8" marker-end="url(#lbmArr)"/>
+    <text x="270" y="152" fill="#6ee7b7" font-family="system-ui, sans-serif" font-size="10">c_5</text>
+    <line x1="190" y1="230" x2="115" y2="155" stroke="#10b981" stroke-width="1.8" marker-end="url(#lbmArr)"/>
+    <text x="96" y="152" fill="#6ee7b7" font-family="system-ui, sans-serif" font-size="10">c_6</text>
+    <line x1="190" y1="230" x2="115" y2="305" stroke="#10b981" stroke-width="1.8" marker-end="url(#lbmArr)"/>
+    <text x="96" y="315" fill="#6ee7b7" font-family="system-ui, sans-serif" font-size="10">c_7</text>
+    <line x1="190" y1="230" x2="265" y2="305" stroke="#10b981" stroke-width="1.8" marker-end="url(#lbmArr)"/>
+    <text x="270" y="315" fill="#6ee7b7" font-family="system-ui, sans-serif" font-size="10">c_8</text>
+
+    <!-- Lattice weights -->
+    <text x="70" y="355" fill="#6ee7b7" font-family="system-ui, sans-serif" font-size="11">w_0 = 4/9, w_{1-4} = 1/9, w_{5-8} = 1/36</text>
+  </g>
+
+  <!-- Right Side: Flow Past Cylinder Simulation Visual -->
+  <g id="flowField">
+    <rect x="350" y="95" width="400" height="280" rx="10" fill="#042f2e" stroke="#14b8a6" stroke-width="1.5"/>
+    <text x="370" y="125" fill="#99f6e4" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">LBM Simulation: von Kármán Vortex Street</text>
+
+    <!-- Streamlines & Vortices -->
+    <path d="M 360 170 Q 430 170 450 190 T 520 250 T 600 200 T 680 260 T 740 220" fill="none" stroke="#38bdf8" stroke-width="2"/>
+    <path d="M 360 210 Q 420 210 440 225 T 510 210 T 590 270 T 670 210 T 740 260" fill="none" stroke="#22d3ee" stroke-width="2"/>
+    <path d="M 360 270 Q 420 270 450 255 T 530 280 T 610 220 T 690 280 T 740 240" fill="none" stroke="#38bdf8" stroke-width="2"/>
+    <path d="M 360 310 Q 430 310 460 290 T 540 230 T 620 280 T 700 230 T 740 270" fill="none" stroke="#22d3ee" stroke-width="2"/>
+
+    <!-- Cylinder / Obstacle -->
+    <circle cx="440" cy="235" r="24" fill="#334155" stroke="#f43f5e" stroke-width="3"/>
+    <text x="424" y="240" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Solid</text>
+
+    <!-- Vortex 1 (Clockwise) -->
+    <circle cx="530" cy="205" r="18" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <text x="522" y="210" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="10">ω_z &gt; 0</text>
+
+    <!-- Vortex 2 (Counter-Clockwise) -->
+    <circle cx="610" cy="265" r="22" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <text x="602" y="270" fill="#c4b5fd" font-family="system-ui, sans-serif" font-size="10">ω_z &lt; 0</text>
+
+    <!-- Vortex 3 -->
+    <circle cx="690" cy="205" r="24" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,3"/>
+    
+    <text x="370" y="355" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="11">Re = 120 · Incompressible Bhatnagar-Gross-Krook (BGK) Collision</text>
+  </g>
+
+  <!-- Governing LBM Equation Box -->
+  <rect x="50" y="395" width="700" height="60" rx="8" fill="#064e3b" stroke="#059669"/>
+  <text x="70" y="418" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Lattice BGK Equation with External Electrostatic Force:</text>
+  <text x="70" y="440" fill="#f8fafc" font-family="monospace" font-size="12">f_i(x + c_i Δt, t + Δt) - f_i(x, t) = - 1/τ [ f_i(x,t) - f_i^{eq}(x,t) ] + Δt F_i^{electro}</text>
+</svg>

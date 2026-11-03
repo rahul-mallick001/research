@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <defs>
+    <linearGradient id="kgpGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#800000"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded container -->
+  <rect width="240" height="56" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <!-- Insignia symbol -->
+  <circle cx="32" cy="28" r="18" fill="url(#kgpGrad)"/>
+  <!-- Gear / Wheel icon inside -->
+  <text x="32" y="34" fill="#ffffff" font-family="'Times New Roman', serif" font-size="18" font-weight="bold" text-anchor="middle">KGP</text>
+  
+  <!-- Text -->
+  <text x="60" y="24" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13" font-weight="700">IIT Kharagpur</text>
+  <text x="60" y="42" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Research Scholar</text>
+</svg>

@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="channelBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="fluidBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.12"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.12"/>
+    </linearGradient>
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="efieldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <marker id="arrowE" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 1 L 7 4 L 0 7 z" fill="#ef4444" />
+    </marker>
+    <marker id="arrowU" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 1 L 7 4 L 0 7 z" fill="#38bdf8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" rx="12" fill="url(#channelBg)"/>
+  
+  <!-- Title / Label -->
+  <text x="30" y="42" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="1.5">ELECTROKINETIC TRANSPORT IN NANOCHANNELS</text>
+  <text x="30" y="68" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Electric Double Layer (EDL) &amp; Electroosmotic Flow (EOF)</text>
+
+  <!-- Channel Top Wall -->
+  <rect x="50" y="90" width="700" height="34" fill="url(#wallGrad)" rx="4"/>
+  <text x="65" y="112" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Silica Surface (Negatively Charged: σ &lt; 0, ζ = -50 mV)</text>
+  <!-- Negative surface charges top -->
+  <g fill="#ef4444" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">
+    <text x="280" y="113">−</text><text x="330" y="113">−</text><text x="380" y="113">−</text>
+    <text x="430" y="113">−</text><text x="480" y="113">−</text><text x="530" y="113">−</text>
+    <text x="580" y="113">−</text><text x="630" y="113">−</text><text x="680" y="113">−</text>
+  </g>
+
+  <!-- Fluid Channel -->
+  <rect x="50" y="124" width="700" height="232" fill="url(#fluidBg)"/>
+
+  <!-- Channel Bottom Wall -->
+  <rect x="50" y="356" width="700" height="34" fill="url(#wallGrad)" rx="4"/>
+  <text x="65" y="378" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Solid Wall (ζ = -50 mV)</text>
+  <!-- Negative surface charges bottom -->
+  <g fill="#ef4444" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">
+    <text x="280" y="379">−</text><text x="330" y="379">−</text><text x="380" y="379">−</text>
+    <text x="430" y="379">−</text><text x="480" y="379">−</text><text x="530" y="379">−</text>
+    <text x="580" y="379">−</text><text x="630" y="379">−</text><text x="680" y="379">−</text>
+  </g>
+
+  <!-- EDL Zones: Stern Layer + Diffuse Layer indicators -->
+  <rect x="50" y="124" width="700" height="28" fill="#38bdf8" fill-opacity="0.12" stroke="#38bdf8" stroke-dasharray="3,3" stroke-width="0.8"/>
+  <rect x="50" y="328" width="700" height="28" fill="#38bdf8" fill-opacity="0.12" stroke="#38bdf8" stroke-dasharray="3,3" stroke-width="0.8"/>
+  <text x="60" y="142" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="11">Debye screening layer (λ_D ~ 10 nm)</text>
+  <text x="60" y="346" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="11">Debye screening layer (λ_D ~ 10 nm)</text>
+
+  <!-- Ions in Solution -->
+  <!-- Excess counter-ions (Na+) near walls -->
+  <g fill="#10b981" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">
+    <circle cx="180" cy="138" r="8" fill="#065f46" stroke="#10b981"/>
+    <text x="176" y="142" fill="#a7f3d0">+</text>
+    <circle cx="260" cy="136" r="8" fill="#065f46" stroke="#10b981"/>
+    <text x="256" y="140" fill="#a7f3d0">+</text>
+    <circle cx="340" cy="140" r="8" fill="#065f46" stroke="#10b981"/>
+    <text x="336" y="144" fill="#a7f3d0">+</text>
+    <circle cx="450" cy="137" r="8" fill="#065f46" stroke="#10b981"/>
+    <text x="446" y="141" fill="#a7f3d0">+</text>
+    <circle cx="560" cy="139" r="8" fill="#065f46" stroke="#10b981"/>
+    <text x="556" y="143" fill="#a7f3d0">+</text>
+
+    <!-- Bottom counter-ions -->
+    <circle cx="190" cy="342" r="8" fill="#065f46" stroke="#10b981"/>
+    <text x="186" y="346" fill="#a7f3d0">+</text>
+    <circle cx="280" cy="344" r="8" fill="#065f46" stroke="#10b981"/>
+    <text x="276" y="348" fill="#a7f3d0">+</text>
+    <circle cx="390" cy="340" r="8" fill="#065f46" stroke="#10b981"/>
+    <text x="386" y="344" fill="#a7f3d0">+</text>
+    <circle cx="510" cy="343" r="8" fill="#065f46" stroke="#10b981"/>
+    <text x="506" y="347" fill="#a7f3d0">+</text>
+    <circle cx="620" cy="341" r="8" fill="#065f46" stroke="#10b981"/>
+    <text x="616" y="345" fill="#a7f3d0">+</text>
+  </g>
+
+  <!-- Neutral Bulk Region Ions -->
+  <g fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">
+    <circle cx="220" cy="210" r="7" fill="#1e293b" stroke="#38bdf8"/>
+    <text x="217" y="214" fill="#38bdf8">+</text>
+    <circle cx="270" cy="250" r="7" fill="#1e293b" stroke="#f43f5e"/>
+    <text x="267" y="253" fill="#f43f5e">−</text>
+    <circle cx="360" cy="220" r="7" fill="#1e293b" stroke="#38bdf8"/>
+    <text x="357" y="224" fill="#38bdf8">+</text>
+    <circle cx="420" cy="270" r="7" fill="#1e293b" stroke="#f43f5e"/>
+    <text x="417" y="273" fill="#f43f5e">−</text>
+  </g>
+
+  <!-- Electroosmotic Flow Plug Profile -->
+  <g id="velocityProfile">
+    <!-- Center line -->
+    <line x1="490" y1="124" x2="490" y2="356" stroke="#64748b" stroke-dasharray="2,2" stroke-width="1"/>
+    <!-- Plug velocity curve -->
+    <path d="M 490 124 Q 570 145 570 165 L 570 315 Q 570 335 490 356" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+    <!-- Velocity vectors -->
+    <line x1="490" y1="160" x2="566" y2="160" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrowU)"/>
+    <line x1="490" y1="200" x2="566" y2="200" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrowU)"/>
+    <line x1="490" y1="240" x2="566" y2="240" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrowU)"/>
+    <line x1="490" y1="280" x2="566" y2="280" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrowU)"/>
+    <line x1="490" y1="320" x2="566" y2="320" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrowU)"/>
+    
+    <text x="585" y="244" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="600">u_eof = -(ε ζ / μ) E_x</text>
+    <text x="585" y="260" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">(Helmholtz-Smoluchowski)</text>
+  </g>
+
+  <!-- Electric Field Arrow -->
+  <line x1="100" y1="430" x2="350" y2="430" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowE)"/>
+  <text x="365" y="435" fill="#f87171" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">Applied Electric Field (E_x →)</text>
+  <text x="530" y="435" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Governing: ∇²ψ = -(ρ_e / ε), ρ(u·∇)u = -∇p + μ∇²u + ρ_e E</text>
+</svg>

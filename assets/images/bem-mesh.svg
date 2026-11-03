@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bemBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="dropGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.2"/>
+    </linearGradient>
+    <marker id="normArr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="efieldArrB" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M 0 0 L 7 3.5 L 0 7 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" rx="12" fill="url(#bemBg)"/>
+  
+  <text x="30" y="42" fill="#a5b4fc" font-family="system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="1.5">BOUNDARY ELEMENT METHOD (BEM) FOR INTERFACIAL FLOWS</text>
+  <text x="30" y="68" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Deforming Droplet Discretization &amp; Green&apos;s Singularity Integration</text>
+
+  <!-- External Electric Field Lines -->
+  <g stroke="#f59e0b" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="4,4">
+    <line x1="80" y1="140" x2="720" y2="140" marker-end="url(#efieldArrB)"/>
+    <line x1="80" y1="200" x2="250" y2="200"/>
+    <line x1="550" y1="200" x2="720" y2="200" marker-end="url(#efieldArrB)"/>
+    <line x1="80" y1="260" x2="230" y2="260"/>
+    <line x1="570" y1="260" x2="720" y2="260" marker-end="url(#efieldArrB)"/>
+    <line x1="80" y1="320" x2="720" y2="320" marker-end="url(#efieldArrB)"/>
+  </g>
+  <text x="630" y="130" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">E_∞ (External Field)</text>
+
+  <!-- Droplet: Prolate Spheroid (Simulating Electro-deformation) -->
+  <ellipse cx="400" cy="240" rx="160" ry="100" fill="url(#dropGrad)" stroke="#818cf8" stroke-width="2.5"/>
+  <ellipse cx="400" cy="240" rx="160" ry="25" fill="none" stroke="#6366f1" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Boundary Elements & Nodes (BEM Discretization Points) -->
+  <!-- We place 16 boundary nodes around the ellipse with normal vectors -->
+  <g id="bemNodes">
+    <!-- Node 1: right pole -->
+    <circle cx="560" cy="240" r="5" fill="#f43f5e"/>
+    <line x1="560" y1="240" x2="595" y2="240" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#normArr)"/>
+    
+    <!-- Node 2: top right -->
+    <circle cx="538" cy="190" r="4.5" fill="#38bdf8"/>
+    <line x1="538" y1="190" x2="565" y2="165" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#normArr)"/>
+    
+    <!-- Node 3: top right high -->
+    <circle cx="480" cy="158" r="4.5" fill="#38bdf8"/>
+    <line x1="480" y1="158" x2="500" y2="128" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#normArr)"/>
+    
+    <!-- Node 4: top pole -->
+    <circle cx="400" cy="140" r="5" fill="#f43f5e"/>
+    <line x1="400" y1="140" x2="400" y2="105" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#normArr)"/>
+    
+    <!-- Node 5: top left high -->
+    <circle cx="320" cy="158" r="4.5" fill="#38bdf8"/>
+    <line x1="320" y1="158" x2="300" y2="128" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#normArr)"/>
+    
+    <!-- Node 6: top left -->
+    <circle cx="262" cy="190" r="4.5" fill="#38bdf8"/>
+    <line x1="262" y1="190" x2="235" y2="165" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#normArr)"/>
+    
+    <!-- Node 7: left pole -->
+    <circle cx="240" cy="240" r="5" fill="#f43f5e"/>
+    <line x1="240" y1="240" x2="205" y2="240" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#normArr)"/>
+
+    <!-- Bottom nodes -->
+    <circle cx="262" cy="290" r="4.5" fill="#38bdf8"/>
+    <line x1="262" y1="290" x2="235" y2="315" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#normArr)"/>
+
+    <circle cx="320" cy="322" r="4.5" fill="#38bdf8"/>
+    <line x1="320" y1="322" x2="300" y2="352" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#normArr)"/>
+
+    <circle cx="400" cy="340" r="5" fill="#f43f5e"/>
+    <line x1="400" y1="340" x2="400" y2="375" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#normArr)"/>
+
+    <circle cx="480" cy="322" r="4.5" fill="#38bdf8"/>
+    <line x1="480" y1="322" x2="500" y2="352" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#normArr)"/>
+
+    <circle cx="538" cy="290" r="4.5" fill="#38bdf8"/>
+    <line x1="538" y1="290" x2="565" y2="315" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#normArr)"/>
+  </g>
+
+  <!-- Element segment highlight -->
+  <path d="M 538 190 Q 555 215 560 240" fill="none" stroke="#22c55e" stroke-width="3.5"/>
+  <text x="575" y="215" fill="#22c55e" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Boundary Element Γ_j</text>
+
+  <!-- Green's Function Source Point & Ray -->
+  <circle cx="370" cy="220" r="5.5" fill="#fbbf24"/>
+  <text x="345" y="212" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">x_0 (Collocation)</text>
+  <line x1="370" y1="220" x2="550" y2="215" stroke="#fbbf24" stroke-dasharray="2,2" stroke-width="1.2"/>
+  <text x="430" y="210" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="10">r = |x - x_0|</text>
+
+  <!-- Physical Properties Label inside droplet -->
+  <text x="350" y="248" fill="#e0e7ff" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Fluid 1 (Droplet)</text>
+  <text x="348" y="265" fill="#c7d2fe" font-family="system-ui, sans-serif" font-size="10">μ_1, ε_1, σ_1</text>
+  <text x="140" y="170" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Fluid 2 (Matrix: μ_2, ε_2, σ_2)</text>
+
+  <!-- Governing Boundary Integral Equation Box -->
+  <rect x="50" y="405" width="700" height="52" rx="8" fill="#1e1b4b" stroke="#4338ca"/>
+  <text x="70" y="426" fill="#a5b4fc" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Stokes Boundary Integral Equation:</text>
+  <text x="70" y="445" fill="#f8fafc" font-family="monospace" font-size="12">c_ij(x_0) u_j(x_0) + ∫_Γ u_j(x) T_ijk(x, x_0) n_k dΓ = ∫_Γ Δf_i(x) G_ij(x, x_0) dΓ + [ΔT_Maxwell]·n</text>
+</svg>

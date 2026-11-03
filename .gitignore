@@ -1,0 +1,19 @@
+# Sensitive credentials and tokens - DO NOT COMMIT
+Access token for GitHub.txt
+github-recovery-codes.txt
+*.token
+*.key
+
+# Temporary / Scraped files
+recession_embed.html
+recession_indicator_widget.html
+website_content.json
+website/
+
+# OS and Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
