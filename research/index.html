@@ -119,8 +119,8 @@
 
       <!-- Theme 2: BEM -->
       <article class="project-card" id="bem" data-category="bem">
-        <div class="project-card-media" style="height: 240px;">
-          <img src="../assets/images/bem-mesh.svg" alt="Boundary Element Method for Droplets" loading="lazy">
+        <div class="project-card-media" style="height: 240px; background: #0b1120;">
+          <img src="../assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png" alt="Boundary Element Method for Droplets & Field Validation" style="width: 100%; height: 100%; object-fit: contain;" loading="lazy">
           <span class="project-badge">Boundary Element Method</span>
         </div>
         <div class="project-card-body">
@@ -134,7 +134,7 @@
           </div>
           <div class="project-card-footer">
             <span style="font-size: 0.82rem; color: var(--text-muted);">Published in <em>J. Fluid Mech.</em> (2024)</span>
-            <a href="../simulation/" class="project-action-btn">View Simulation &rarr;</a>
+            <a href="../simulation/#bem-dep" class="project-action-btn">Inspect BEM Simulations &rarr;</a>
           </div>
         </div>
       </article>
@@ -163,8 +163,11 @@
 
       <!-- Theme 4: EHD -->
       <article class="project-card" id="ehd" data-category="ehd">
-        <div class="project-card-media" style="height: 240px;">
-          <img src="../assets/images/ehd-droplet.svg" alt="Taylor-Melcher Electrohydrodynamic Droplets" loading="lazy">
+        <div class="project-card-media" style="height: 240px; background: #0b1120;">
+          <video autoplay loop muted playsinline controls poster="../assets/media/BEM/droplet-uniform-field/streamlines-poster.jpg" style="width: 100%; height: 100%; object-fit: contain;">
+            <source src="../assets/media/BEM/droplet-uniform-field/Streamlines_Animation.mp4" type="video/mp4">
+            <img src="../assets/media/BEM/droplet-uniform-field/Streamlines_Animation.webp" alt="Taylor-Melcher EHD Droplet Circulation" style="width: 100%; height: 100%; object-fit: contain;">
+          </video>
           <span class="project-badge">Electrohydrodynamics</span>
         </div>
         <div class="project-card-body">
@@ -178,7 +181,7 @@
           </div>
           <div class="project-card-footer">
             <span style="font-size: 0.82rem; color: var(--text-muted);">In Collaboration with Prof. Aditya Bandopadhyay</span>
-            <a href="../simulation/" class="project-action-btn">View Simulation &rarr;</a>
+            <a href="../simulation/#bem-droplet" class="project-action-btn">View Circulation Video &rarr;</a>
           </div>
         </div>
       </article>

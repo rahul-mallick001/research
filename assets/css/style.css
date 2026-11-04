@@ -1327,3 +1327,148 @@ dialog::backdrop {
     display: block;
   }
 }
+
+/* ==========================================================================
+   Simulation Video Switcher & Lightbox Modal
+   ========================================================================== */
+.media-switch-group {
+  display: inline-flex;
+  gap: 0.35rem;
+  padding: 0.2rem;
+  background: var(--bg-surface-alt, rgba(0, 0, 0, 0.06));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm, 6px);
+}
+
+.media-switch-btn {
+  padding: 0.28rem 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.media-switch-btn:hover {
+  color: var(--text-main);
+  background: rgba(14, 165, 233, 0.08);
+}
+
+.media-switch-btn.active {
+  background: var(--accent-primary);
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.lightbox-open-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.28rem 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent-primary);
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lightbox-open-btn:hover {
+  background: var(--accent-primary);
+  color: #ffffff;
+}
+
+.preview-zoom-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  padding: 0.25rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.preview-zoom-badge svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+
+.media-preview-container:hover .preview-zoom-badge {
+  background: var(--accent-primary);
+  border-color: transparent;
+}
+
+/* Accessible Lightbox Dialog */
+.lightbox-dialog {
+  max-width: 92vw;
+  max-height: 92vh;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg, 12px);
+  background: var(--bg-surface);
+  color: var(--text-main);
+  padding: 0;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.lightbox-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(4px);
+}
+
+.lightbox-content {
+  display: flex;
+  flex-direction: column;
+  max-height: 92vh;
+}
+
+.lightbox-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-surface);
+}
+
+.lightbox-body {
+  padding: 1.25rem;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm, 4px);
+}
+
+.lightbox-caption {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-surface);
+}

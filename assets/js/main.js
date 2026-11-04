@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initDialogLightDismissFallback();
   initBibtexModals();
   initProjectFilters();
+  initSimFilters();
+  initVideoSwitchers();
+  initImageLightbox();
   initMobileNav();
   initToast();
 });
@@ -188,6 +191,103 @@ function initProjectFilters() {
           card.style.display = 'none';
         }
       });
+    });
+  });
+}
+
+/* ==========================================================================
+   4b. Simulation Category Filtering
+   ========================================================================== */
+function initSimFilters() {
+  const simBtns = document.querySelectorAll('[data-sim-filter]');
+  const simItems = document.querySelectorAll('[data-sim-cat]');
+  if (!simBtns.length || !simItems.length) return;
+
+  simBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      simBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-sim-filter');
+      simItems.forEach((item) => {
+        const cat = item.getAttribute('data-sim-cat') || '';
+        if (filter === 'all' || cat.split(' ').includes(filter)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+/* ==========================================================================
+   4c. Video Streamline / Plot Switcher
+   ========================================================================== */
+function initVideoSwitchers() {
+  const switchBtns = document.querySelectorAll('.media-switch-btn');
+  if (!switchBtns.length) return;
+
+  switchBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const parent = btn.closest('.media-switch-group');
+      if (parent) {
+        parent.querySelectorAll('.media-switch-btn').forEach((b) => b.classList.remove('active'));
+      }
+      btn.classList.add('active');
+
+      const videoId = btn.getAttribute('data-video-target');
+      const videoEl = document.getElementById(videoId);
+      const newSrc = btn.getAttribute('data-video-src');
+      const newPoster = btn.getAttribute('data-video-poster');
+
+      if (videoEl && newSrc) {
+        if (newPoster) videoEl.poster = newPoster;
+        const source = videoEl.querySelector('source');
+        if (source) {
+          source.src = newSrc;
+        }
+        videoEl.src = newSrc;
+        videoEl.load();
+        videoEl.play().catch(() => {});
+      }
+    });
+  });
+
+  // Ensure all autoplay videos play cleanly
+  document.querySelectorAll('video[autoplay]').forEach((v) => {
+    v.muted = true;
+    v.play().catch(() => {});
+  });
+}
+
+/* ==========================================================================
+   4d. Image & Simulation Lightbox Modal
+   ========================================================================== */
+function initImageLightbox() {
+  const lightboxDialog = document.getElementById('image-lightbox-dialog');
+  const lightboxImg = document.getElementById('lightbox-image');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxDesc = document.getElementById('lightbox-desc');
+  if (!lightboxDialog || !lightboxImg) return;
+
+  const openLightbox = (src, title, desc) => {
+    lightboxImg.src = src;
+    if (lightboxTitle) lightboxTitle.textContent = title || 'Simulation Result';
+    if (lightboxDesc) lightboxDesc.textContent = desc || '';
+    lightboxDialog.showModal();
+  };
+
+  document.querySelectorAll('[data-lightbox-src]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      // Don't trigger if clicked on an anchor or button inside unless it is the button itself
+      if (el.tagName !== 'BUTTON' && (e.target.tagName === 'A' || (e.target.tagName === 'BUTTON' && e.target !== el))) {
+        return;
+      }
+      const src = el.getAttribute('data-lightbox-src');
+      const title = el.getAttribute('data-lightbox-title');
+      const desc = el.getAttribute('data-lightbox-desc');
+      if (src) openLightbox(src, title, desc);
     });
   });
 }

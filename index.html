@@ -215,87 +215,80 @@
 
       <!-- Simulation Animation Grid -->
       <div class="projects-grid">
-        <!-- Simulation Card 1: Electrokinetics -->
+        <!-- Simulation Card 1: EHD Droplet Streamlines (BEM) -->
         <div class="project-card">
           <div class="project-card-media" style="height: 240px; background: #0b1120;">
-            <!-- Animation / Video container: Place custom MP4/GIF in assets/media/ -->
-            <video controls loop muted playsinline poster="assets/images/electrokinetics-diagram.svg" style="width: 100%; height: 100%; object-fit: contain;">
-              <source src="assets/media/electrokinetics-simulation.mp4" type="video/mp4">
-              Your browser does not support the video tag.
+            <video autoplay loop muted playsinline controls poster="assets/media/BEM/droplet-uniform-field/streamlines-poster.jpg" style="width: 100%; height: 100%; object-fit: contain;">
+              <source src="assets/media/BEM/droplet-uniform-field/Streamlines_Animation.mp4" type="video/mp4">
+              <img src="assets/media/BEM/droplet-uniform-field/Streamlines_Animation.webp" alt="Taylor-Melcher EHD Droplet Circulation" style="width: 100%; height: 100%; object-fit: contain;">
             </video>
-            <span class="project-badge">Electrokinetics</span>
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-card-title">Electroosmotic Transport &amp; Debye Layer Ion Dynamics</h3>
-            <p class="project-card-desc">
-              Transient simulation of counter-ion shielding and electroosmotic slip in charge-regulated nanochannels, capturing non-linear potential decay across the electric double layer (EDL).
-            </p>
-            <div class="project-card-footer">
-              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">EOF &middot; Poisson-Nernst-Planck</span>
-              <a href="simulation/" class="project-action-btn">Inspect Animation &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Simulation Card 2: EHD Droplet -->
-        <div class="project-card">
-          <div class="project-card-media" style="height: 240px; background: #0b1120;">
-            <video controls loop muted playsinline poster="assets/images/ehd-droplet.svg" style="width: 100%; height: 100%; object-fit: contain;">
-              <source src="assets/media/ehd-droplet-simulation.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <span class="project-badge">Electrohydrodynamics</span>
+            <span class="project-badge">BEM &middot; JFM 2024</span>
           </div>
           <div class="project-card-body">
             <h3 class="project-card-title">Taylor-Melcher EHD Droplet Circulation &amp; Deformation</h3>
             <p class="project-card-desc">
-              Dynamic electrohydrodynamic deformation of leaky dielectric droplets under external electric fields, demonstrating quadrupolar vortex circulation and prolate-to-oblate morphodynamics.
+              Transient boundary element simulation of a leaky dielectric droplet under a uniform electric field, demonstrating quadrupolar vortex circulation and steady oblate deformation ($D \approx -0.0864$).
             </p>
             <div class="project-card-footer">
-              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">Taylor-Melcher &middot; Leaky Dielectric</span>
-              <a href="simulation/" class="project-action-btn">Inspect Animation &rarr;</a>
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">Taylor-Melcher &middot; BEM Solver</span>
+              <a href="simulation/#bem-droplet" class="project-action-btn">Inspect Animation &amp; Snapshots &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- Simulation Card 3: BEM Mesh -->
+        <!-- Simulation Card 2: Liquid Bridge (BEM) -->
         <div class="project-card">
           <div class="project-card-media" style="height: 240px; background: #0b1120;">
-            <video controls loop muted playsinline poster="assets/images/bem-mesh.svg" style="width: 100%; height: 100%; object-fit: contain;">
-              <source src="assets/media/bem-simulation.mp4" type="video/mp4">
-              Your browser does not support the video tag.
+            <video autoplay loop muted playsinline controls poster="assets/media/BEM/liquid-bridge/bridge-poster.jpg" style="width: 100%; height: 100%; object-fit: contain;">
+              <source src="assets/media/BEM/liquid-bridge/bridge_streamlines_animation.mp4" type="video/mp4">
+              <img src="assets/media/BEM/liquid-bridge/bridge_streamlines_animation.webp" alt="Liquid Bridge Animation" style="width: 100%; height: 100%; object-fit: contain;">
             </video>
-            <span class="project-badge">Boundary Element Method</span>
+            <span class="project-badge">BEM &middot; Liquid Bridge</span>
           </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">BEM Interface Tracking &amp; Droplet Tip-Streaming</h3>
+            <h3 class="project-card-title">Capillary &amp; EHD Liquid Bridges Between Cylinders</h3>
             <p class="project-card-desc">
-              Boundary element solver with adaptive surface mesh tracking droplet elongation, conical tip formation, and satellite droplet emissions under Maxwell electrostatic stress jumps.
+              Multi-boundary BEM simulation of an axisymmetric liquid bridge anchored between cylindrical electrodes, tracking deformation flow speed $|u|$ and continuation bifurcation limits up to $A_{\text{max}} = 12.09$.
             </p>
             <div class="project-card-footer">
-              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">BEM &middot; Singular Quadrature</span>
-              <a href="simulation/" class="project-action-btn">Inspect Animation &rarr;</a>
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">Axisymmetric BEM &middot; Bifurcation</span>
+              <a href="simulation/#bem-bridge" class="project-action-btn">Inspect Bridge Dynamics &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- Simulation Card 4: LBM Vortex -->
+        <!-- Simulation Card 3: Non-Uniform Dielectrophoresis (BEM Validation) -->
         <div class="project-card">
           <div class="project-card-media" style="height: 240px; background: #0b1120;">
-            <video controls loop muted playsinline poster="assets/images/lbm-lattice.svg" style="width: 100%; height: 100%; object-fit: contain;">
-              <source src="assets/media/lbm-simulation.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <span class="project-badge">Lattice Boltzmann Method</span>
+            <img src="assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png" alt="Droplet Dielectrophoresis & Field Verification" style="width: 100%; height: 100%; object-fit: contain;">
+            <span class="project-badge">BEM &middot; APS DFD 2024</span>
           </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">LBM Mesoscopic Vortex Shedding &amp; Multiphase Transport</h3>
+            <h3 class="project-card-title">Dielectrophoretic Field Distortion &amp; BEM Validation</h3>
             <p class="project-card-desc">
-              D2Q9/D3Q19 lattice Boltzmann simulation illustrating unsteady hydrodynamic vortex shedding and coupled interfacial force interactions in microfluidic geometries.
+              Rigorous 4-panel code verification for a droplet in a non-uniform divergent electric field, comparing numerical BEM surface charges $q(\theta)$ and normal field $E_n$ against exact analytical theory.
             </p>
             <div class="project-card-footer">
-              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">LBM D2Q9 &middot; BGK Scheme</span>
-              <a href="simulation/" class="project-action-btn">Inspect Animation &rarr;</a>
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">Gauss-Legendre &middot; Exact Theory</span>
+              <a href="simulation/#bem-dep" class="project-action-btn">Inspect 4-Panel Verification &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulation Card 4: LBM Multiphase Solver (Upcoming) -->
+        <div class="project-card" style="border: 1px dashed var(--accent-primary);">
+          <div class="project-card-media" style="height: 240px; background: rgba(14, 165, 233, 0.04);">
+            <img src="assets/images/lbm-lattice.svg" alt="LBM D2Q9 Multiphase Simulation" style="width: 80%; height: 80%; object-fit: contain; opacity: 0.85;">
+            <span class="project-badge" style="background: var(--accent-primary); color: #fff;">LBM &middot; In Post-Processing</span>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-card-title">LBM Mesoscopic Vortex Shedding &amp; Multiphase Flows</h3>
+            <p class="project-card-desc">
+              D2Q9/D3Q19 lattice Boltzmann simulation data for multiphase fluids at density ratios up to $1000:1$ and nanochannel ion transport. Animation datasets currently in post-processing.
+            </p>
+            <div class="project-card-footer">
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">LBM D2Q9 &middot; Shan-Chen Scheme</span>
+              <a href="simulation/#lbm-solvers" class="project-action-btn">Upcoming Solvers &rarr;</a>
             </div>
           </div>
         </div>

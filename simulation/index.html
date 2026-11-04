@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
-  <title>Simulation | Rahul Mallick | IIT Kharagpur</title>
-  <meta name="description" content="Simulation gallery, computational visualizations, videos, and animated dynamics by Rahul Mallick, Thermodynamics Lab at IIT Kharagpur.">
+  <title>Simulation Gallery | Rahul Mallick | IIT Kharagpur</title>
+  <meta name="description" content="Computational flow animations, transient video recordings, vector field streamlines, and boundary element method (BEM) simulation models by Rahul Mallick, Thermodynamics Lab at IIT Kharagpur.">
   
   <script>
     try {
@@ -76,144 +76,173 @@
 
   <main class="main-content">
     <div class="page-header">
-      <h1>Simulation &amp; Visual Gallery</h1>
+      <h1>Simulation &amp; Computational Gallery</h1>
       <p>
-        Computational flow animations, transient video recordings, vector field streamlines, and finite boundary element meshes developed in the <strong>Thermodynamics Lab</strong>, IIT Kharagpur.
+        Computational flow animations, transient video recordings, vector field streamlines, and boundary element method (BEM) models developed in the <strong>Thermodynamics Lab</strong>, IIT Kharagpur.
       </p>
     </div>
 
-    <!-- Simulation Videos Showcase Section -->
-    <section class="section-wrapper" aria-labelledby="video-showcase-title">
-      <div class="section-title-wrap">
-        <div>
-          <h2 id="video-showcase-title" class="section-title">Simulation Videos &amp; Dynamic Recordings</h2>
-          <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.2rem;">
-            Renders of droplet tip-streaming, contact line dynamics, and vortex street evolutions from HPC cluster computations.
+    <!-- Category Filter Toolbar -->
+    <div class="filter-bar" role="toolbar" aria-label="Filter simulation methodologies">
+      <button class="filter-btn active" data-sim-filter="all">All Solvers</button>
+      <button class="filter-btn" data-sim-filter="bem">Boundary Element Method (BEM)</button>
+      <button class="filter-btn" data-sim-filter="ehd">Electrohydrodynamics (EHD)</button>
+      <button class="filter-btn" data-sim-filter="lbm">Lattice Boltzmann Method (LBM)</button>
+    </div>
+
+    <!-- Main Simulation Grid -->
+    <div class="media-gallery-grid">
+      
+      <!-- ==========================================
+           SIMULATION 1: Uniform Field Droplet Deformation (BEM)
+           ========================================== -->
+      <article class="media-item" id="bem-droplet" data-sim-cat="bem ehd">
+        <div class="media-preview-container" style="height: 290px;">
+          <!-- Dual Video Container with Autoplay and WebP Animated Fallback -->
+          <video id="droplet-video-player" autoplay loop muted playsinline controls poster="../assets/media/BEM/droplet-uniform-field/streamlines-poster.jpg" style="width: 100%; height: 100%; object-fit: contain; background: #0b1120;">
+            <source id="droplet-video-src" src="../assets/media/BEM/droplet-uniform-field/Streamlines_Animation.mp4" type="video/mp4">
+            <img src="../assets/media/BEM/droplet-uniform-field/Streamlines_Animation.webp" alt="Droplet Streamlines Animation" style="width: 100%; height: 100%; object-fit: contain;">
+          </video>
+          <span class="media-tag-indicator">BEM &middot; JFM 2024</span>
+        </div>
+
+        <div class="media-caption-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <!-- Interactive Switcher -->
+            <div class="media-switch-group">
+              <button type="button" class="media-switch-btn active" data-video-target="droplet-video-player" data-video-src="../assets/media/BEM/droplet-uniform-field/Streamlines_Animation.mp4" data-video-poster="../assets/media/BEM/droplet-uniform-field/streamlines-poster.jpg">
+                ▶ Streamlines Animation
+              </button>
+              <button type="button" class="media-switch-btn" data-video-target="droplet-video-player" data-video-src="../assets/media/BEM/droplet-uniform-field/deformation_vs_time.mp4" data-video-poster="../assets/media/BEM/droplet-uniform-field/deformation-poster.jpg">
+                📈 Deformation D(t) Plot
+              </button>
+            </div>
+
+            <!-- Lightbox Snapshot Button -->
+            <button type="button" class="lightbox-open-btn" data-lightbox-src="../assets/media/BEM/droplet-uniform-field/streamline_time_snapshots.png" data-lightbox-title="Transient Streamline Snapshots: t = 0.0 s to 10.0 s" data-lightbox-desc="6-panel temporal evolution capturing Taylor-Melcher 4-quadrant circulation and steady oblate deformation (D = -0.0864).">
+              <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+              Time Snapshots
+            </button>
+          </div>
+
+          <h3 class="media-title">EHD Droplet Deformation &amp; Taylor-Melcher Circulation</h3>
+          <p class="media-desc">
+            Axisymmetric boundary element simulation of an uncharged leaky dielectric droplet suspended in an immiscible fluid under a uniform DC electric field. Demonstrates transient dynamics starting from initial prolate perturbation ($D &gt; 0$) settling into steady oblate equilibrium ($D \approx -0.0864$) accompanied by quadrupolar internal circulation vortices driven by interfacial free charge accumulation.
           </p>
-        </div>
-      </div>
 
-      <div class="media-gallery-grid">
-        <!-- Video Card 1 -->
-        <div class="media-item">
-          <div class="media-preview-container">
-            <video controls loop muted playsinline poster="../assets/images/ehd-droplet.svg" style="width: 100%; height: 100%; background: #000; object-fit: contain;">
-              <source src="../assets/media/sample-simulation.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <span class="media-tag-indicator">MP4 Video</span>
-          </div>
-          <div class="media-caption-box">
-            <h3 class="media-title">EHD Droplet Deformation &amp; Breakup</h3>
-            <p class="media-desc">
-              Transient boundary element simulation of a leaky dielectric droplet under high-voltage DC electric field leading to conical Taylor tips and satellite droplet emission.
-            </p>
+          <div style="margin-top: 0.85rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <a href="../publication/#mallick-bandopadhyay-jfm-2024" class="pub-btn" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+              Read JFM (2024) Article &rarr;
+            </a>
+            <button type="button" class="pub-btn lightbox-open-btn" data-lightbox-src="../assets/media/BEM/droplet-uniform-field/streamline_time_snapshots.png" data-lightbox-title="Transient Streamline Snapshots: t = 0.0 s to 10.0 s" data-lightbox-desc="6-panel temporal evolution capturing Taylor-Melcher 4-quadrant circulation and steady oblate deformation (D = -0.0864)." style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+              Inspect 6-Time Snapshot Progression
+            </button>
           </div>
         </div>
+      </article>
 
-        <!-- Video Card 2 -->
-        <div class="media-item">
-          <div class="media-preview-container">
-            <video controls loop muted playsinline poster="../assets/images/lbm-lattice.svg" style="width: 100%; height: 100%; background: #000; object-fit: contain;">
-              <source src="../assets/media/sample-lbm-vortex.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <span class="media-tag-indicator">MP4 Video</span>
-          </div>
-          <div class="media-caption-box">
-            <h3 class="media-title">LBM Mesoscopic Vortex Shedding (Re = 150)</h3>
-            <p class="media-desc">
-              Lattice Boltzmann D2Q9 hydrodynamic simulation around a micro-pillar. Vorticity contours and periodic pressure oscillations captured over 50,000 lattice time steps.
-            </p>
+      <!-- ==========================================
+           SIMULATION 2: Non-Uniform Dielectrophoresis (BEM Validation)
+           ========================================== -->
+      <article class="media-item" id="bem-dep" data-sim-cat="bem ehd">
+        <div class="media-preview-container" style="height: 290px; cursor: pointer;" data-lightbox-src="../assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png" data-lightbox-title="Droplet Dielectrophoresis: Electric Field Distortion & BEM Validation" data-lightbox-desc="4-panel analysis: (a) Applied divergent field and potential; (b) Field magnitude |E|/Ec; (c) Normal field En,ext and En,int comparison (Analytical vs BEM); (d) Interfacial surface charge q(θ) and tangential field Et across polar angle θ.">
+          <img src="../assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png" alt="Electric Field and Surface Charge Validation (Analytical vs BEM)" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
+          <span class="media-tag-indicator">BEM &middot; APS DFD 2024</span>
+          <div class="preview-zoom-badge" title="Click to enlarge 4-panel analysis">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            Click to Enlarge
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Animated GIFs & Visual Contours Section -->
-    <section class="section-wrapper" aria-labelledby="gif-gallery-title">
-      <div class="section-title-wrap">
-        <div>
-          <h2 id="gif-gallery-title" class="section-title">Animated Simulation Contours &amp; Figures</h2>
-          <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.2rem;">
-            Vector field streamlines, finite boundary meshes, and phase-field interface contours.
+        <div class="media-caption-box">
+          <h3 class="media-title">Droplet Dielectrophoresis &amp; Field Code Validation</h3>
+          <p class="media-desc">
+            Rigorous mathematical verification of our boundary element electrostatic solver against exact analytical solutions for a droplet subjected to a non-uniform divergent electric field. 
+            Subplots show: (a) Applied field $\mathbf{E}_\infty$ &amp; potential $\Phi_\infty$; (b) Field magnitude $|\mathbf{E}|/E_c$; (c) Normal electric field continuity $E_n$ matching exact theory; (d) Free surface charge density $q(\theta)$ across polar angles $\theta \in [0^\circ, 180^\circ]$.
           </p>
+
+          <div style="margin-top: 0.85rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button type="button" class="pub-btn lightbox-open-btn" data-lightbox-src="../assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png" data-lightbox-title="Droplet Dielectrophoresis: Electric Field Distortion & BEM Validation" data-lightbox-desc="4-panel analysis: (a) Applied divergent field and potential; (b) Field magnitude |E|/Ec; (c) Normal field En,ext and En,int comparison (Analytical vs BEM); (d) Interfacial surface charge q(θ) and tangential field Et across polar angle θ." style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+              Enlarge 4-Panel Verification Figure &rarr;
+            </button>
+            <a href="../publication/#mallick-bandopadhyay-aps-2024" class="pub-btn" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+              APS DFD 2024 Citation
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ==========================================
+           SIMULATION 3: Liquid Bridges Between Cylinders (BEM)
+           ========================================== -->
+      <article class="media-item" id="bem-bridge" data-sim-cat="bem ehd">
+        <div class="media-preview-container" style="height: 290px;">
+          <video autoplay loop muted playsinline controls poster="../assets/media/BEM/liquid-bridge/bridge-poster.jpg" style="width: 100%; height: 100%; object-fit: contain; background: #0b1120;">
+            <source src="../assets/media/BEM/liquid-bridge/bridge_streamlines_animation.mp4" type="video/mp4">
+            <img src="../assets/media/BEM/liquid-bridge/bridge_streamlines_animation.webp" alt="Liquid Bridge Animation" style="width: 100%; height: 100%; object-fit: contain;">
+          </video>
+          <span class="media-tag-indicator">BEM &middot; Multi-Boundary</span>
+        </div>
+
+        <div class="media-caption-box">
+          <h3 class="media-title">Capillary &amp; EHD Liquid Bridges Between Cylinders</h3>
+          <p class="media-desc">
+            Multi-boundary axisymmetric BEM modeling of an electrohydrodynamic liquid bridge anchored between two cylindrical electrodes ($+V_0$ and $-V_0$). Dynamic simulation traces the fluid deformation flow speed $|u|$ coupled with the continuation bifurcation diagram ($B_e = 12.0, B = 0.5, d = 0.5, \theta_0 = 15^\circ$) mapping bridge height $H_b = z_1(0) - z_2(0)$ versus cross-sectional area $A$ up to turning-point limit ($A_{\text{max}} = 12.09$).
+          </p>
+
+          <div style="margin-top: 0.85rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button type="button" class="pub-btn lightbox-open-btn" data-lightbox-src="../assets/media/BEM/liquid-bridge/bridge-poster.jpg" data-lightbox-title="Liquid Bridge Bifurcation Diagram & Streamlines" data-lightbox-desc="Equilibrium continuation branch and turning point limit at A_max = 12.09 under Electric Bond number Be = 12.0." style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+              View Bifurcation Diagram &rarr;
+            </button>
+            <a href="../research/#bem" class="pub-btn" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+              BEM Solver Method Details
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ==========================================
+           SIMULATION 4: LBM Multiphase Solver (Upcoming)
+           ========================================== -->
+      <article class="media-item" id="lbm-solvers" data-sim-cat="lbm" style="border: 1px dashed var(--accent-primary);">
+        <div class="media-preview-container" style="height: 290px; background: rgba(14, 165, 233, 0.04);">
+          <img src="../assets/images/lbm-lattice.svg" alt="Lattice Boltzmann Method Simulation Stencil" loading="lazy" style="width: 80%; height: 80%; object-fit: contain; opacity: 0.85;">
+          <span class="media-tag-indicator" style="background: var(--accent-primary); color: #fff;">LBM &middot; In Post-Processing</span>
+        </div>
+
+        <div class="media-caption-box">
+          <h3 class="media-title">Lattice Boltzmann Multiphase Solvers (D2Q9/D3Q19)</h3>
+          <p class="media-desc">
+            Mesoscopic Shan-Chen multiphase simulations for density ratios up to $1000:1$ and high Maxwell stress divergence. Video datasets capturing vortex shedding past micro-pillars and electro-osmotic ionic shielding in charge-regulated nanochannels are currently in post-processing and will be integrated here shortly.
+          </p>
+
+          <div style="margin-top: 0.85rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <a href="../publication/#mallick-bandopadhyay-pre-2024" class="pub-btn" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+              Read Physical Review E (2024) Article &rarr;
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Lightbox Modal Dialog (Accessible Native <dialog closedby="any">) -->
+    <dialog id="image-lightbox-dialog" class="lightbox-dialog" closedby="any" aria-labelledby="lightbox-title">
+      <div class="lightbox-content">
+        <div class="lightbox-header">
+          <h3 id="lightbox-title" style="margin: 0; font-size: 1.05rem; font-family: var(--font-serif); font-weight: 600;">Simulation Inspection</h3>
+          <form method="dialog">
+            <button class="dialog-close-btn" type="submit" aria-label="Close image inspection">&times;</button>
+          </form>
+        </div>
+        <div class="lightbox-body">
+          <img id="lightbox-image" class="lightbox-img" src="" alt="Enlarged Simulation Result">
+        </div>
+        <div class="lightbox-caption">
+          <p id="lightbox-desc" style="margin: 0; line-height: 1.5;"></p>
         </div>
       </div>
-
-      <div class="media-gallery-grid">
-        <!-- Item 1 -->
-        <div class="media-item">
-          <div class="media-preview-container">
-            <img src="../assets/images/electrokinetics-diagram.svg" alt="Electrokinetic Streamlines and Debye Layer" loading="lazy">
-            <span class="media-tag-indicator">SVG / Vector</span>
-          </div>
-          <div class="media-caption-box">
-            <h3 class="media-title">Debye Screening &amp; Plug Flow EOF</h3>
-            <p class="media-desc">
-              Net ionic charge concentration and potential decay across the electric double layer (EDL) in a 100 nm silica nanochannel.
-            </p>
-          </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="media-item">
-          <div class="media-preview-container">
-            <img src="../assets/images/bem-mesh.svg" alt="BEM Node Discretization and Normal Vectors" loading="lazy">
-            <span class="media-tag-indicator">BEM Mesh</span>
-          </div>
-          <div class="media-caption-box">
-            <h3 class="media-title">Boundary Discretization &amp; Singularity Quadrature</h3>
-            <p class="media-desc">
-              Adaptive boundary element nodes with surface normal vectors and Green&apos;s source point integration for axisymmetric droplet interfaces.
-            </p>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="media-item">
-          <div class="media-preview-container">
-            <img src="../assets/images/lbm-lattice.svg" alt="LBM D2Q9 Stencil & Vortex Street" loading="lazy">
-            <span class="media-tag-indicator">LBM D2Q9</span>
-          </div>
-          <div class="media-caption-box">
-            <h3 class="media-title">Lattice Boltzmann D2Q9 Stencils</h3>
-            <p class="media-desc">
-              Discrete velocity vectors c<sub>0</sub>–c<sub>8</sub> and hydrodynamic streamlines past a micro-cylinder computed via BGK collision scheme.
-            </p>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="media-item">
-          <div class="media-preview-container">
-            <img src="../assets/images/ehd-droplet.svg" alt="Taylor-Melcher Quadrupolar Flow" loading="lazy">
-            <span class="media-tag-indicator">EHD Model</span>
-          </div>
-          <div class="media-caption-box">
-            <h3 class="media-title">Taylor-Melcher Quadrupolar Circulation</h3>
-            <p class="media-desc">
-              Electric field induced surface free charges and interfacial shear stresses driving internal and external 4-quadrant fluid circulation vortices.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Media Instruction Card -->
-    <section style="background: var(--bg-surface); border: 1px dashed var(--accent-primary); border-radius: var(--radius-lg); padding: 1.75rem; margin-top: 2rem;">
-      <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--accent-primary); margin-bottom: 0.5rem;">
-        Adding Your Simulation Animations
-      </h3>
-      <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
-        To showcase your personal research results, place your simulation MP4 recordings or animated GIFs into <code>assets/media/</code>:
-      </p>
-      <ul style="margin: 0.75rem 0 0.75rem 1.5rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
-        <li><strong>Videos:</strong> Export MP4 files from ParaView or Tecplot and set <code>&lt;source src="../assets/media/your-file.mp4"&gt;</code>.</li>
-        <li><strong>Animated GIFs:</strong> Place GIFs into <code>assets/media/</code> and embed via <code>&lt;img src="../assets/media/your-animation.gif"&gt;</code>.</li>
-        <li><strong>High-Res Plots:</strong> Save PNG/SVG charts from Python Matplotlib or MATLAB directly into <code>assets/images/</code>.</li>
-      </ul>
-    </section>
+    </dialog>
 
   </main>
 
