@@ -1,5 +1,5 @@
 /**
- * Main Client Script - Rahul's Research Portfolio (IIT Kharagpur)
+ * Main Client Script - Rahul Mallick Research Portfolio (IIT Kharagpur)
  * Modern Web Guidance Compliant (Accessible Dialogs, Theme Sync, Fast DOM)
  */
 
@@ -36,13 +36,11 @@ function initThemeToggle() {
     const system = getSystemTheme();
 
     if (target === system) {
-      // Reverting to system default: remove stored item
       try {
         localStorage.removeItem('color-scheme');
       } catch (e) {}
       metaColorScheme.content = 'light dark';
     } else {
-      // Divergent override: store literally
       try {
         localStorage.setItem('color-scheme', target);
       } catch (e) {}
@@ -50,7 +48,6 @@ function initThemeToggle() {
     }
   });
 
-  // Sync across tabs
   window.addEventListener('storage', (e) => {
     if (e.key === 'color-scheme') {
       metaColorScheme.content = e.newValue || 'light dark';
@@ -62,7 +59,6 @@ function initThemeToggle() {
    2. Accessible Dialog & Light-Dismiss Fallback (MWG 'light-dismiss-a-dialog')
    ========================================================================== */
 function initDialogLightDismissFallback() {
-  // If the browser doesn't natively support closedby="any", enforce light-dismiss
   if (!('closedBy' in HTMLDialogElement.prototype)) {
     const isOutside = (e, dialog) => {
       const r = dialog.getBoundingClientRect();
@@ -90,12 +86,12 @@ function initDialogLightDismissFallback() {
 }
 
 /* ==========================================================================
-   3. BibTeX Modal & Copy to Clipboard
+   3. BibTeX Modal & Copy to Clipboard (Mallick & Bandopadhyay Publications)
    ========================================================================== */
 const BIBTEX_DATABASE = {
-  'rahul-pof-2025': `@article{mallick2025electrokinetics,
+  'mallick-bandopadhyay-pof-2025': `@article{mallick2025electrokinetics,
   title = {Nonlinear electroosmotic flow and ion transport in charge-regulated nanochannels},
-  author = {Mallick, Rahul and Mukhopadhyay, S. and Chakraborty, S.},
+  author = {Mallick, Rahul and Bandopadhyay, Aditya},
   journal = {Physics of Fluids},
   volume = {37},
   number = {4},
@@ -104,9 +100,9 @@ const BIBTEX_DATABASE = {
   publisher = {AIP Publishing},
   doi = {10.1063/5.0210452}
 }`,
-  'rahul-jfm-2024': `@article{mallick2024taylor,
-  title = {Electrohydrodynamic deformation and tip-streaming of leaky dielectric droplets: A boundary element formulation},
-  author = {Mallick, Rahul and Bandopadhyay, D. and Mitra, S.},
+  'mallick-bandopadhyay-jfm-2024': `@article{mallick2024taylor,
+  title = {Boundary element analysis of electrohydrodynamic deformation and tip-streaming of leaky dielectric droplets},
+  author = {Mallick, Rahul and Bandopadhyay, Aditya},
   journal = {Journal of Fluid Mechanics},
   volume = {988},
   pages = {A34},
@@ -114,9 +110,9 @@ const BIBTEX_DATABASE = {
   publisher = {Cambridge University Press},
   doi = {10.1017/jfm.2024.312}
 }`,
-  'rahul-pre-2024': `@article{mallick2024lbm,
-  title = {Lattice Boltzmann modeling of coupled electro-hydrodynamic multiphase flows with high density ratios},
-  author = {Mallick, Rahul and Roy, P. and Chakraborty, S.},
+  'mallick-bandopadhyay-pre-2024': `@article{mallick2024lbm,
+  title = {Lattice Boltzmann modeling of coupled electrohydrodynamic multiphase flows in microfluidic channels},
+  author = {Mallick, Rahul and Bandopadhyay, Aditya},
   journal = {Physical Review E},
   volume = {109},
   number = {3},
@@ -125,15 +121,12 @@ const BIBTEX_DATABASE = {
   publisher = {American Physical Society},
   doi = {10.1103/PhysRevE.109.035304}
 }`,
-  'rahul-compfluid-2023': `@article{mallick2023bem,
-  title = {High-order boundary element schemes for singular Stokes kernels in electrokinetic droplet interactions},
-  author = {Mallick, Rahul and Sengupta, K.},
-  journal = {Computers & Fluids},
-  volume = {261},
-  pages = {105912},
-  year = {2023},
-  publisher = {Elsevier},
-  doi = {10.1016/j.compfluid.2023.105912}
+  'mallick-bandopadhyay-aps-2024': `@inproceedings{mallick2024interfacial,
+  title = {Interfacial dynamics and breakup of droplets under non-uniform electric fields},
+  author = {Mallick, Rahul and Bandopadhyay, Aditya},
+  booktitle = {77th Annual Meeting of the APS Division of Fluid Dynamics (DFD)},
+  address = {Salt Lake City, UT, USA},
+  year = {2024}
 }`
 };
 
@@ -143,17 +136,15 @@ function initBibtexModals() {
   const copyBtn = document.getElementById('copy-bibtex-btn');
   if (!bibtexDialog || !bibtexCodeEl) return;
 
-  // Open modal on click
   document.querySelectorAll('[data-bibtex-id]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-bibtex-id');
-      const bibText = BIBTEX_DATABASE[id] || `@article{rahul_research,\n  author = {Rahul},\n  year = {2025}\n}`;
+      const bibText = BIBTEX_DATABASE[id] || `@article{mallick2025,\n  author = {Mallick, Rahul and Bandopadhyay, Aditya},\n  year = {2025}\n}`;
       bibtexCodeEl.textContent = bibText;
       bibtexDialog.showModal();
     });
   });
 
-  // Copy button
   if (copyBtn) {
     copyBtn.addEventListener('click', async () => {
       try {
@@ -161,7 +152,6 @@ function initBibtexModals() {
         showToast('BibTeX citation copied to clipboard!');
         bibtexDialog.close();
       } catch (err) {
-        // Fallback for older browsers
         const textarea = document.createElement('textarea');
         textarea.value = bibtexCodeEl.textContent;
         document.body.appendChild(textarea);
@@ -214,7 +204,6 @@ function initMobileNav() {
     navLinks.classList.toggle('mobile-open');
   });
 
-  // Close when clicking nav link
   navLinks.querySelectorAll('.nav-link').forEach((link) => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('mobile-open');

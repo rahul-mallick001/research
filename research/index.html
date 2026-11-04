@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Research Area | Rahul Mallick | IIT Kharagpur</title>
+  <meta name="description" content="Research Area and numerical solvers by Rahul Mallick, Thermodynamics Lab at IIT Kharagpur: Electrokinetics, Boundary Element Method (BEM), Lattice Boltzmann Method (LBM), and Electrohydrodynamics (EHD).">
+  
+  <script>
+    try {
+      const theme = localStorage.getItem("color-scheme");
+      if (theme) document.querySelector('meta[name="color-scheme"]').content = theme;
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/profile-avatar.svg">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../" class="brand" aria-label="Rahul Mallick Home">
+        <img src="../assets/images/profile-avatar.svg" alt="Rahul Mallick" class="brand-avatar">
+        <div class="brand-text">
+          <span class="brand-name">Rahul Mallick</span>
+          <span class="brand-title">IIT Kharagpur · Research Scholar</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../" class="nav-link">Home</a></li>
+          <li><a href="../research/" class="nav-link active">Research Area</a></li>
+          <li><a href="../simulation/" class="nav-link">Simulation</a></li>
+          <li><a href="../publication/" class="nav-link">Publication</a></li>
+          <li><a href="../cv/" class="nav-link">CV</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light and dark color scheme">
+          <svg class="icon-dark" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+          <svg class="icon-light" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0-1.9 19.8 10 10 0 0 0 11.6-11.6A10 10 0 0 0 12.3 2zm-1.1 17.8a8 8 0 1 1 8.6-8.6 8 8 0 0 1-8.6 8.6z"/></svg>
+        </button>
+        <button class="mobile-toggle" type="button" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1>Research Area &amp; Solvers</h1>
+      <p>
+        My research in the <strong>Thermodynamics Lab</strong> at IIT Kharagpur focuses on computational multiphysics, electrohydrodynamic droplet deformations, boundary element method (BEM) algorithms, and mesoscopic lattice Boltzmann transport.
+      </p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-bar" role="toolbar" aria-label="Filter research themes">
+      <button class="filter-btn active" data-filter="all">All Areas</button>
+      <button class="filter-btn" data-filter="electrokinetics">Electrokinetics</button>
+      <button class="filter-btn" data-filter="bem">Boundary Element Method (BEM)</button>
+      <button class="filter-btn" data-filter="lbm">Lattice Boltzmann Method (LBM)</button>
+      <button class="filter-btn" data-filter="ehd">Electrohydrodynamics (EHD)</button>
+    </div>
+
+    <!-- Research Cards -->
+    <div class="projects-grid">
+
+      <!-- Theme 1: Electrokinetics -->
+      <article class="project-card" id="electrokinetics" data-category="electrokinetics">
+        <div class="project-card-media" style="height: 240px;">
+          <img src="../assets/images/electrokinetics-diagram.svg" alt="Electrokinetic Transport in Nanochannels" loading="lazy">
+          <span class="project-badge">Electrokinetics &amp; EDL</span>
+        </div>
+        <div class="project-card-body">
+          <h2 class="project-card-title">Nonlinear Electroosmotic Transport in Nanochannels</h2>
+          <p class="project-card-desc">
+            Modeling ion concentration polarization, electric double layer (EDL) capacitance, and electroosmotic flow (EOF) in charged nanochannels. Surface chemistry equilibria (protonation/deprotonation) are dynamically coupled with non-linear Poisson-Boltzmann and Nernst-Planck systems to predict current-voltage characteristics and mass throughput.
+          </p>
+          <div style="background: var(--bg-subtle); padding: 0.75rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.8rem; border-left: 3px solid var(--accent-primary);">
+            <strong>Key Equations:</strong><br>
+            &nabla;&sup2;&psi; = -(&rho;_e / &epsilon;) = (2 z e n_0 / &epsilon;) sinh(z e &psi; / k_B T)<br>
+            u_EOF = -(&epsilon; &zeta; / &mu;) E_x [1 - &psi;(y)/&zeta;]
+          </div>
+          <div class="project-card-footer">
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Published in <em>Physics of Fluids</em> (2025)</span>
+            <a href="../simulation/" class="project-action-btn">View Simulation &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Theme 2: BEM -->
+      <article class="project-card" id="bem" data-category="bem">
+        <div class="project-card-media" style="height: 240px;">
+          <img src="../assets/images/bem-mesh.svg" alt="Boundary Element Method for Droplets" loading="lazy">
+          <span class="project-badge">Boundary Element Method</span>
+        </div>
+        <div class="project-card-body">
+          <h2 class="project-card-title">Interfacial Droplet Deformation via High-Order BEM</h2>
+          <p class="project-card-desc">
+            Developing custom boundary element formulations with regularized Green&apos;s function kernels to solve creeping Stokes flow coupled with electrohydrodynamic Maxwell stress jumps across deformable interfaces. Mesh reparameterization algorithms prevent node clustering at sharp droplet tips during high electric capillary number tip-streaming.
+          </p>
+          <div style="background: var(--bg-subtle); padding: 0.75rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.8rem; border-left: 3px solid var(--accent-primary);">
+            <strong>Boundary Integral Formulation:</strong><br>
+            c_ij u_j(x_0) + &int;_&Gamma; u_j T_ijk n_k d&Gamma; = &int;_&Gamma; &Delta;f_i G_ij d&Gamma; + [&Delta;T_M]&middot;n
+          </div>
+          <div class="project-card-footer">
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Published in <em>J. Fluid Mech.</em> (2024)</span>
+            <a href="../simulation/" class="project-action-btn">View Simulation &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Theme 3: LBM -->
+      <article class="project-card" id="lbm" data-category="lbm">
+        <div class="project-card-media" style="height: 240px;">
+          <img src="../assets/images/lbm-lattice.svg" alt="Lattice Boltzmann Method Solvers" loading="lazy">
+          <span class="project-badge">Lattice Boltzmann Method</span>
+        </div>
+        <div class="project-card-body">
+          <h2 class="project-card-title">GPU-Accelerated Multiphase Lattice Boltzmann Solvers</h2>
+          <p class="project-card-desc">
+            Mesoscopic hydrodynamics on D2Q9 and D3Q19 lattices with Shan-Chen pseudopotential and phase-field formulations for high density-ratio multiphase systems. Coupled with electrostatic Poisson solvers to model droplet coalescence, breakup, and contact line dynamics on patterned superhydrophobic substrates.
+          </p>
+          <div style="background: var(--bg-subtle); padding: 0.75rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.8rem; border-left: 3px solid var(--accent-primary);">
+            <strong>Lattice BGK Algorithm:</strong><br>
+            f_i(x + c_i &Delta;t, t + &Delta;t) - f_i(x,t) = - (1/&tau;)[f_i - f_i^{eq}] + &Delta;t F_i
+          </div>
+          <div class="project-card-footer">
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Published in <em>Physical Review E</em> (2024)</span>
+            <a href="../simulation/" class="project-action-btn">View Simulation &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Theme 4: EHD -->
+      <article class="project-card" id="ehd" data-category="ehd">
+        <div class="project-card-media" style="height: 240px;">
+          <img src="../assets/images/ehd-droplet.svg" alt="Taylor-Melcher Electrohydrodynamic Droplets" loading="lazy">
+          <span class="project-badge">Electrohydrodynamics</span>
+        </div>
+        <div class="project-card-body">
+          <h2 class="project-card-title">Taylor-Melcher Leaky Dielectric Interfacial Dynamics</h2>
+          <p class="project-card-desc">
+            Investigating electrohydrodynamic droplet deformations governed by the competition between charge relaxation time ($t_e = \varepsilon/\sigma$) and hydrodynamic deformation time ($t_h = \mu a / \gamma$). Our work reveals non-linear quadrupolar recirculating flow structures and explains prolate-to-oblate transitions under AC and pulsed DC electric fields.
+          </p>
+          <div style="background: var(--bg-subtle); padding: 0.75rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.8rem; border-left: 3px solid var(--accent-primary);">
+            <strong>Interfacial Shear Stress:</strong><br>
+            [[ n &middot; T^H ]] + [[ n &middot; T^M ]] = &gamma; &kappa; n | &tau;_e = q_s E_t
+          </div>
+          <div class="project-card-footer">
+            <span style="font-size: 0.82rem; color: var(--text-muted);">In Collaboration with Prof. Aditya Bandopadhyay</span>
+            <a href="../simulation/" class="project-action-btn">View Simulation &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Computational & Laboratory Methodology -->
+    <section class="section-wrapper" style="margin-top: 3.5rem;">
+      <div class="section-title-wrap">
+        <h2 class="section-title">Computational Toolchain &amp; Laboratory Infrastructure</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-main); margin-bottom: 0.5rem;">Thermodynamics Lab</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            Conducting computational modeling and microscale experiments within the Thermodynamics Lab, Department of Mechanical Engineering, IIT Kharagpur under the mentorship of Prof. Aditya Bandopadhyay.
+          </p>
+        </div>
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-main); margin-bottom: 0.5rem;">HPC Clusters &amp; Parallelization</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            Deploying simulations on IIT Kharagpur&apos;s High-Performance Computing (HPC) Supercomputing facilities utilizing OpenMP multi-threading and MPI domain decomposition for large-scale grid systems.
+          </p>
+        </div>
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-main); margin-bottom: 0.5rem;">Post-Processing &amp; Visualization</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            Automated pipeline using Python (NumPy, SciPy, Matplotlib), ParaView Python scripting, and Tecplot for vector field streamlines, isosurface rendering, and animation exports.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <p>&copy; 2026 Rahul Mallick · Thermodynamics Lab, IIT Kharagpur</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="../">Home</a>
+        <a href="../research/">Research Area</a>
+        <a href="../simulation/">Simulation</a>
+        <a href="../publication/">Publication</a>
+        <a href="../cv/">CV</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

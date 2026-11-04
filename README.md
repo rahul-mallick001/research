@@ -3,62 +3,64 @@
 A static research website and computational portfolio configured for **GitHub Pages**.
 
 - **Author:** Rahul Mallick, Research Scholar (Ph.D. Candidate)
+- **Lab:** Thermodynamics Lab, Department of Mechanical Engineering
 - **Institution:** Indian Institute of Technology (IIT) Kharagpur
 - **Domain:** Electrokinetics, Boundary Element Method (BEM), Lattice Boltzmann Method (LBM), Electrohydrodynamics (EHD)
-- **Repository:** [https://github.com/rahul-mallick001/rmallick](https://github.com/rahul-mallick001/rmallick)
-- **Live URL:** [https://rahul-mallick001.github.io/rmallick/](https://rahul-mallick001.github.io/rmallick/)
+- **Primary Email:** `rahul.mallick.24@kgpian.iitkgp.ac.in`
+- **Alternate Email:** `rahul.mallick0601@gmail.com`
+- **LinkedIn:** [https://www.linkedin.com/in/rmallick](https://www.linkedin.com/in/rmallick)
+- **Google Scholar:** [https://scholar.google.com/citations?user=rU2_iEoAAAAJ&hl=en&authuser=1](https://scholar.google.com/citations?user=rU2_iEoAAAAJ&hl=en&authuser=1)
+- **GitHub:** [https://github.com/rahul-mallick001](https://github.com/rahul-mallick001)
+- **ORCID:** [https://orcid.org/0009-0005-8922-563X](https://orcid.org/0009-0005-8922-563X)
+- **Repository:** [https://github.com/rahul-mallick001/research](https://github.com/rahul-mallick001/research)
+- **Live URL:** [https://rahul-mallick001.github.io/research/](https://rahul-mallick001.github.io/research/)
 
 ---
 
-## 🚀 Pushing to your GitHub Repository
+## 🌐 Clean URLs (Without `.html`)
 
-Run these commands from this directory (`d:\github`):
+The website uses directory index routing for clean, extensionless URLs:
 
-```bash
-git init
-git add .
-git commit -m "Deploy Rahul Mallick academic research portfolio"
-git branch -M main
-git remote add origin https://github.com/rahul-mallick001/rmallick.git
-git push -u origin main
-```
+- **Home:** `https://rahul-mallick001.github.io/research/`
+- **Research Area:** `https://rahul-mallick001.github.io/research/research/`
+- **Simulation:** `https://rahul-mallick001.github.io/research/simulation/`
+- **Publication:** `https://rahul-mallick001.github.io/research/publication/`
+- **CV:** `https://rahul-mallick001.github.io/research/cv/`
+- **Contact:** `https://rahul-mallick001.github.io/research/contact/`
 
-### Enabling GitHub Pages
-1. Open your repository: [https://github.com/rahul-mallick001/rmallick](https://github.com/rahul-mallick001/rmallick)
-2. Go to **Settings** → **Pages** (under "Code and automation").
-3. Under **Build and deployment** > **Branch**:
-   - Source: **Deploy from a branch**
-   - Branch: **`main`**
-   - Folder: **`/ (root)`**
-4. Click **Save**.
-5. Your website will be live in ~60 seconds at:
+---
+
+## 🚀 How to Rename Repository on GitHub to `research`
+
+1. Open your repository settings:  
+   👉 **https://github.com/rahul-mallick001/rmallick/settings**
+2. In the **Repository name** field at the top, change `rmallick` to:
    ```
-   https://rahul-mallick001.github.io/rmallick/
+   research
+   ```
+3. Click **Rename**.
+4. GitHub will automatically redirect your repository and update Pages to:  
+   **https://rahul-mallick001.github.io/research/**
+5. In your local terminal, update your remote URL:
+   ```bash
+   git remote set-url origin https://github.com/rahul-mallick001/research.git
    ```
 
 ---
 
-## 🎨 Key Features
+## 🎬 Adding Custom Simulation Animations
 
-1. **Academic Design System**:
-   - Modern typography (`Newsreader` serif for scholarly headings, `Inter` for clarity, `IBM Plex Mono` for equations/code).
-   - Theme toggle supporting **System Default**, **Light**, and **Dark** modes adhering to W3C modern web guidance with zero Flash of Unstyled Content (FOUC).
+To put your particular simulation videos or animated GIFs on the website:
 
-2. **Live Interactive CFD Simulation Engine (`assets/js/simulation.js`)**:
-   - Pure HTML5 Canvas & vanilla JavaScript engine simulating:
-     - **Mode 1:** Electrokinetic Flow & Microchannel Debye layer transport (EOF).
-     - **Mode 2:** Taylor-Melcher Electrohydrodynamic (EHD) Leaky Dielectric droplet with quadrupolar vortices.
-     - **Mode 3:** Lattice Boltzmann Method (LBM D2Q9) vortex street past a draggable obstacle.
-   - Interactive parameters: Electric field, zeta potential, tracer particle density, real-time particle injection on click, and 1-click high-res PNG frame capture.
-
-3. **Rich Multimedia Gallery (`simulations.html`)**:
-   - Video player showcase with HTML5 video player and looping flow animations.
-   - Animated simulation GIFs and vector field contours.
-   - High-resolution SVG schematics illustrating EDL dynamics, BEM mesh discretization, LBM velocity stencils, and EHD stress balance.
-
-4. **1-Click BibTeX Citation Copying (`publications.html`)**:
-   - Accessible native HTML5 `<dialog closedby="any">` with fallback.
-   - Copy citations directly to clipboard with animated toast notification.
-
-5. **Curriculum Vitae (`cv.html`)**:
-   - Clean timeline of Education, Computational Skills, Awards, and Teaching experience at IIT Kharagpur, with a dedicated **Download CV (PDF)** button.
+1. Drop your `.mp4` video files or `.gif` animations into the `assets/media/` folder:
+   - `assets/media/electrokinetics-simulation.mp4`
+   - `assets/media/ehd-droplet-simulation.mp4`
+   - `assets/media/bem-simulation.mp4`
+   - `assets/media/lbm-simulation.mp4`
+2. Commit and push:
+   ```bash
+   git add assets/media/
+   git commit -m "Add simulation animations"
+   git push origin main
+   ```
+   GitHub Actions will automatically redeploy the site with your animations live.
