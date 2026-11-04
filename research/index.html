@@ -15,7 +15,29 @@
   </script>
 
   <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="icon" type="image/svg+xml" href="../assets/images/profile-avatar.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement === "function") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError: false
+        });
+      }
+    });
+  </script>
 </head>
 <body>
 
@@ -23,7 +45,7 @@
   <header class="site-header">
     <div class="nav-container">
       <a href="../" class="brand" aria-label="Rahul Mallick Home">
-        <img src="../assets/images/profile.png" alt="Rahul Mallick" class="brand-avatar">
+        <img src="../assets/images/favicon-32x32.png" alt="Rahul Mallick" class="brand-avatar" width="38" height="38">
         <div class="brand-text">
           <span class="brand-name">Rahul Mallick</span>
           <span class="brand-title">IIT Kharagpur · Research Scholar</span>
@@ -83,10 +105,10 @@
           <p class="project-card-desc">
             Modeling ion concentration polarization, electric double layer (EDL) capacitance, and electroosmotic flow (EOF) in charged nanochannels. Surface chemistry equilibria (protonation/deprotonation) are dynamically coupled with non-linear Poisson-Boltzmann and Nernst-Planck systems to predict current-voltage characteristics and mass throughput.
           </p>
-          <div style="background: var(--bg-subtle); padding: 0.75rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.8rem; border-left: 3px solid var(--accent-primary);">
-            <strong>Key Equations:</strong><br>
-            &nabla;&sup2;&psi; = -(&rho;_e / &epsilon;) = (2 z e n_0 / &epsilon;) sinh(z e &psi; / k_B T)<br>
-            u_EOF = -(&epsilon; &zeta; / &mu;) E_x [1 - &psi;(y)/&zeta;]
+          <div class="math-card">
+            <span class="math-card-label">Governing Equations</span>
+            $$\nabla^2 \psi = -\frac{\rho_e}{\varepsilon} = \frac{2 z e n_0}{\varepsilon} \sinh\left(\frac{z e \psi}{k_B T}\right)$$
+            $$u_{\mathrm{EOF}} = -\frac{\varepsilon \zeta}{\mu} E_x \left[1 - \frac{\psi(y)}{\zeta}\right]$$
           </div>
           <div class="project-card-footer">
             <span style="font-size: 0.82rem; color: var(--text-muted);">Published in <em>Physics of Fluids</em> (2025)</span>
@@ -106,9 +128,9 @@
           <p class="project-card-desc">
             Developing custom boundary element formulations with regularized Green&apos;s function kernels to solve creeping Stokes flow coupled with electrohydrodynamic Maxwell stress jumps across deformable interfaces. Mesh reparameterization algorithms prevent node clustering at sharp droplet tips during high electric capillary number tip-streaming.
           </p>
-          <div style="background: var(--bg-subtle); padding: 0.75rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.8rem; border-left: 3px solid var(--accent-primary);">
-            <strong>Boundary Integral Formulation:</strong><br>
-            c_ij u_j(x_0) + &int;_&Gamma; u_j T_ijk n_k d&Gamma; = &int;_&Gamma; &Delta;f_i G_ij d&Gamma; + [&Delta;T_M]&middot;n
+          <div class="math-card">
+            <span class="math-card-label">Boundary Integral Formulation</span>
+            $$c_{ij} u_j(\mathbf{x}_0) + \int_\Gamma u_j T_{ijk} n_k \, d\Gamma = \int_\Gamma \Delta f_i G_{ij} \, d\Gamma + [\Delta \mathbf{T}^M] \cdot \mathbf{n}$$
           </div>
           <div class="project-card-footer">
             <span style="font-size: 0.82rem; color: var(--text-muted);">Published in <em>J. Fluid Mech.</em> (2024)</span>
@@ -128,9 +150,9 @@
           <p class="project-card-desc">
             Mesoscopic hydrodynamics on D2Q9 and D3Q19 lattices with Shan-Chen pseudopotential and phase-field formulations for high density-ratio multiphase systems. Coupled with electrostatic Poisson solvers to model droplet coalescence, breakup, and contact line dynamics on patterned superhydrophobic substrates.
           </p>
-          <div style="background: var(--bg-subtle); padding: 0.75rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.8rem; border-left: 3px solid var(--accent-primary);">
-            <strong>Lattice BGK Algorithm:</strong><br>
-            f_i(x + c_i &Delta;t, t + &Delta;t) - f_i(x,t) = - (1/&tau;)[f_i - f_i^{eq}] + &Delta;t F_i
+          <div class="math-card">
+            <span class="math-card-label">Lattice BGK Algorithm</span>
+            $$f_i(\mathbf{x} + \mathbf{c}_i \Delta t, t + \Delta t) - f_i(\mathbf{x}, t) = -\frac{1}{\tau}\left[f_i - f_i^{\mathrm{eq}}\right] + \Delta t \, F_i$$
           </div>
           <div class="project-card-footer">
             <span style="font-size: 0.82rem; color: var(--text-muted);">Published in <em>Physical Review E</em> (2024)</span>
@@ -150,9 +172,9 @@
           <p class="project-card-desc">
             Investigating electrohydrodynamic droplet deformations governed by the competition between charge relaxation time ($t_e = \varepsilon/\sigma$) and hydrodynamic deformation time ($t_h = \mu a / \gamma$). Our work reveals non-linear quadrupolar recirculating flow structures and explains prolate-to-oblate transitions under AC and pulsed DC electric fields.
           </p>
-          <div style="background: var(--bg-subtle); padding: 0.75rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.8rem; border-left: 3px solid var(--accent-primary);">
-            <strong>Interfacial Shear Stress:</strong><br>
-            [[ n &middot; T^H ]] + [[ n &middot; T^M ]] = &gamma; &kappa; n | &tau;_e = q_s E_t
+          <div class="math-card">
+            <span class="math-card-label">Interfacial Stress Balance</span>
+            $$\left[\kern-0.15em\left[ \mathbf{n} \cdot \mathbf{T}^H \right]\kern-0.15em\right] + \left[\kern-0.15em\left[ \mathbf{n} \cdot \mathbf{T}^M \right]\kern-0.15em\right] = \gamma \kappa \mathbf{n}, \quad \tau_e = q_s E_t$$
           </div>
           <div class="project-card-footer">
             <span style="font-size: 0.82rem; color: var(--text-muted);">In Collaboration with Prof. Aditya Bandopadhyay</span>
