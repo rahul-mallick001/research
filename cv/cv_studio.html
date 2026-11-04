@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic CV Studio & Live Form</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-area {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0.5in 0.6in !important;
+        margin: 0 !important;
+      }
+      @page {
+        margin: 0.6in 0.6in 0.6in 0.6in;
+        size: letter portrait;
+      }
+    }
+    .cv-paper {
+      font-family: "Times New Roman", Times, "Liberation Serif", Georgia, serif;
+      color: #111827;
+      background: #ffffff;
+      line-height: 1.35;
+    }
+    .cv-paper h1, .cv-paper h2, .cv-paper h3 {
+      font-family: "Times New Roman", Times, "Liberation Serif", Georgia, serif;
+    }
+    /* Custom scrollbar for form panel */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.05);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(100,116,139,0.3);
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="bg-[var(--background,#0f172a)] text-[var(--foreground,#f8fafc)] antialiased min-h-screen">
+
+  <!-- Main App Layout -->
+  <div class="flex flex-col h-screen">
+    
+    <!-- Top Action Bar -->
+    <header class="no-print bg-[var(--card,#1e293b)] border-b border-[var(--border,#334155)] px-6 py-3 flex items-center justify-between shadow-sm shrink-0">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white text-base">
+          CV
+        </div>
+        <div>
+          <h1 class="text-base font-semibold text-[var(--foreground,#f8fafc)] leading-tight">Academic CV Studio</h1>
+          <p class="text-xs text-[var(--muted-foreground,#94a3b8)]">Reference layout: <span class="font-medium text-blue-400">cv.pdf (Jae Hoon Choi Academic Format)</span></p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="export-tex-btn" class="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-700 hover:bg-slate-600 text-white flex items-center gap-1.5 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Export LaTeX (.tex)
+        </button>
+        <button id="copy-markdown-btn" class="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-700 hover:bg-slate-600 text-white flex items-center gap-1.5 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+          Copy Markdown
+        </button>
+        <button id="print-pdf-btn" class="px-4 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-500 text-white flex items-center gap-1.5 shadow-sm transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          Print / Save PDF
+        </button>
+      </div>
+    </header>
+
+    <!-- Workspace: Split View (Form Inputs on Left, Paper Preview on Right) -->
+    <div class="flex flex-1 overflow-hidden">
+      
+      <!-- Left: Form Controls / UI Questions -->
+      <aside class="no-print w-full md:w-[460px] lg:w-[500px] shrink-0 border-r border-[var(--border,#334155)] bg-[var(--card,#1e293b)] flex flex-col h-full">
+        <!-- Form Tabs Navigation -->
+        <div class="flex overflow-x-auto border-b border-[var(--border,#334155)] px-3 pt-2 text-xs font-medium gap-1 shrink-0 bg-slate-900/40">
+          <button data-tab="header-tab" class="tab-btn px-3 py-2 rounded-t-lg bg-blue-600 text-white font-semibold">1. Header</button>
+          <button data-tab="education-tab" class="tab-btn px-3 py-2 rounded-t-lg hover:bg-slate-800 text-slate-300">2. Education</button>
+          <button data-tab="research-tab" class="tab-btn px-3 py-2 rounded-t-lg hover:bg-slate-800 text-slate-300">3. Research</button>
+          <button data-tab="pubs-tab" class="tab-btn px-3 py-2 rounded-t-lg hover:bg-slate-800 text-slate-300">4. Publications</button>
+          <button data-tab="teaching-tab" class="tab-btn px-3 py-2 rounded-t-lg hover:bg-slate-800 text-slate-300">5. Teaching & Awards</button>
+          <button data-tab="skills-tab" class="tab-btn px-3 py-2 rounded-t-lg hover:bg-slate-800 text-slate-300">6. Skills & Ref</button>
+        </div>
+
+        <!-- Form Panels Container -->
+        <div class="flex-1 overflow-y-auto p-5 custom-scrollbar space-y-6">
+          
+          <!-- TAB 1: Header & Contact Info -->
+          <div id="header-tab" class="tab-content space-y-4">
+            <div class="border-b border-slate-700 pb-2">
+              <h2 class="text-sm font-semibold text-white">Personal & Contact Header</h2>
+              <p class="text-xs text-slate-400">Matches the two-column header in the reference CV.</p>
+            </div>
+
+            <div class="space-y-3">
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Full Name</label>
+                <input id="input-name" type="text" value="Rahul Mallick" class="w-full px-3 py-1.5 text-xs rounded bg-slate-800 border border-slate-700 text-white focus:ring-1 focus:ring-blue-500">
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">CV Date</label>
+                <input id="input-date" type="text" value="November 2026" class="w-full px-3 py-1.5 text-xs rounded bg-slate-800 border border-slate-700 text-white focus:ring-1 focus:ring-blue-500">
+              </div>
+
+              <div class="p-3 bg-slate-800/60 rounded-lg border border-slate-700/60 space-y-2">
+                <span class="text-xs font-semibold text-blue-400">Left Column: Affiliation & Address</span>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-0.5">Laboratory / Group</label>
+                  <input id="input-lab" type="text" value="Thermodynamics Lab" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-0.5">Department & Institution</label>
+                  <input id="input-dept" type="text" value="Department of Mechanical Engineering" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                  <input id="input-inst" type="text" value="Indian Institute of Technology (IIT) Kharagpur" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white mt-1.5">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-0.5">Address / City, State, PIN</label>
+                  <input id="input-addr" type="text" value="Kharagpur, West Bengal 721302, India" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+              </div>
+
+              <div class="p-3 bg-slate-800/60 rounded-lg border border-slate-700/60 space-y-2">
+                <span class="text-xs font-semibold text-blue-400">Right Column: Contact & Web Presence</span>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-0.5">Institutional Email</label>
+                  <input id="input-email" type="text" value="rahul.mallick.24@kgpian.iitkgp.ac.in" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-0.5">Alternative / Personal Email</label>
+                  <input id="input-alt-email" type="text" value="rahul.mallick0601@gmail.com" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-0.5">Phone Number</label>
+                  <input id="input-phone" type="text" value="+91-7602535675" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-0.5">Website</label>
+                  <input id="input-website" type="text" value="rahul-mallick001.github.io" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-0.5">LinkedIn Profile</label>
+                  <input id="input-linkedin" type="text" value="linkedin.com/in/rmallick" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-0.5">ORCID / Google Scholar</label>
+                  <input id="input-orcid" type="text" value="0009-0005-8922-563X" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: Education -->
+          <div id="education-tab" class="tab-content hidden space-y-4">
+            <div class="border-b border-slate-700 pb-2">
+              <h2 class="text-sm font-semibold text-white">Education & Degrees</h2>
+              <p class="text-xs text-slate-400">List degrees in reverse chronological order with graduation dates.</p>
+            </div>
+
+            <!-- Degree 1: Ph.D. -->
+            <div class="p-3 bg-slate-800/60 rounded-lg border border-slate-700 space-y-2">
+              <span class="text-xs font-semibold text-blue-400">Doctoral Degree (Ph.D.)</span>
+              <div class="grid grid-cols-3 gap-2">
+                <div class="col-span-2">
+                  <label class="block text-xs text-slate-400 mb-0.5">Degree Title & Major</label>
+                  <input id="edu1-degree" type="text" value="Ph.D. in Mechanical Engineering" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-0.5">Dates / Year</label>
+                  <input id="edu1-date" type="text" value="2024 – Present" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs text-slate-400 mb-0.5">Institution</label>
+                <input id="edu1-inst" type="text" value="Indian Institute of Technology (IIT) Kharagpur" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+              </div>
+              <div>
+                <label class="block text-xs text-slate-400 mb-0.5">Advisor & Dissertation Focus</label>
+                <input id="edu1-advisor" type="text" value="Advisor: Prof. Aditya Bandopadhyay" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                <textarea id="edu1-focus" rows="2" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white mt-1">Focus: Interfacial Electrohydrodynamics, Boundary Element Method (BEM) for Deformable Droplets, Multiphase Lattice Boltzmann Method (LBM), and Electrokinetics.</textarea>
+              </div>
+            </div>
+
+            <!-- Degree 2: ME -->
+            <div class="p-3 bg-slate-800/60 rounded-lg border border-slate-700 space-y-2">
+              <span class="text-xs font-semibold text-blue-400">Master's Degree (ME)</span>
+              <div class="grid grid-cols-3 gap-2">
+                <div class="col-span-2">
+                  <label class="block text-xs text-slate-400 mb-0.5">Degree Title & Major</label>
+                  <input id="edu2-degree" type="text" value="Master of Engineering (ME) in Mechanical Engineering" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-0.5">Completion Date</label>
+                  <input id="edu2-date" type="text" value="May 2024" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs text-slate-400 mb-0.5">Institution & Honors</label>
+                <input id="edu2-inst" type="text" value="Jadavpur University · First Class (Specialization: Thermal)" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+              </div>
+            </div>
+
+            <!-- Degree 3: B.Tech -->
+            <div class="p-3 bg-slate-800/60 rounded-lg border border-slate-700 space-y-2">
+              <span class="text-xs font-semibold text-blue-400">Bachelor's Degree (B.Tech)</span>
+              <div class="grid grid-cols-3 gap-2">
+                <div class="col-span-2">
+                  <label class="block text-xs text-slate-400 mb-0.5">Degree Title & Major</label>
+                  <input id="edu3-degree" type="text" value="Bachelor of Technology (B.Tech) in Mechanical Engineering" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-0.5">Completion Date</label>
+                  <input id="edu3-date" type="text" value="May 2021" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs text-slate-400 mb-0.5">Institution & Honors</label>
+                <input id="edu3-inst" type="text" value="Aliah University · First Class Honors" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: Research Interests & Appointments -->
+          <div id="research-tab" class="tab-content hidden space-y-4">
+            <div class="border-b border-slate-700 pb-2">
+              <h2 class="text-sm font-semibold text-white">Research Focus & Appointments</h2>
+              <p class="text-xs text-slate-400">Categorized research domains and academic appointments.</p>
+            </div>
+
+            <div class="space-y-3">
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Primary Research Interests</label>
+                <input id="input-primary-res" type="text" value="Interfacial Electrohydrodynamics (EHD), Multiphase Flows, Microfluidics" class="w-full px-3 py-1.5 text-xs rounded bg-slate-800 border border-slate-700 text-white">
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Secondary Research Interests</label>
+                <input id="input-secondary-res" type="text" value="Boundary Element Method (BEM), Lattice Boltzmann Method (LBM), High-Performance Scientific Computing" class="w-full px-3 py-1.5 text-xs rounded bg-slate-800 border border-slate-700 text-white">
+              </div>
+
+              <div class="pt-2 border-t border-slate-700/60">
+                <span class="text-xs font-semibold text-blue-400 block mb-2">Academic & Research Appointments</span>
+                <div class="space-y-2">
+                  <div class="p-2.5 bg-slate-800/60 rounded border border-slate-700 space-y-1.5">
+                    <div class="flex justify-between">
+                      <input id="emp1-role" type="text" value="Doctoral Research Scholar" class="px-2 py-0.5 text-xs font-medium bg-slate-900 border border-slate-700 text-white rounded w-2/3">
+                      <input id="emp1-date" type="text" value="2024 – Present" class="px-2 py-0.5 text-xs bg-slate-900 border border-slate-700 text-white rounded w-1/4 text-right">
+                    </div>
+                    <input id="emp1-dept" type="text" value="Thermodynamics Lab, Department of Mechanical Engineering, IIT Kharagpur" class="w-full px-2 py-0.5 text-xs bg-slate-900 border border-slate-700 text-slate-300 rounded">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: Publications & Conferences -->
+          <div id="pubs-tab" class="tab-content hidden space-y-4">
+            <div class="border-b border-slate-700 pb-2">
+              <h2 class="text-sm font-semibold text-white">Publications & Preprints</h2>
+              <p class="text-xs text-slate-400">Add accepted publications or manuscripts in preparation.</p>
+            </div>
+
+            <div class="p-3 bg-slate-800/60 rounded-lg border border-slate-700 space-y-2">
+              <span class="text-xs font-semibold text-blue-400">Current Status</span>
+              <p class="text-xs text-slate-300">Manuscripts in preparation / under review.</p>
+              <input id="pub-custom" type="text" value="Manuscripts in preparation / under review." class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+            </div>
+          </div>
+
+          <!-- TAB 5: Teaching, Honors & Awards -->
+          <div id="teaching-tab" class="tab-content hidden space-y-4">
+            <div class="border-b border-slate-700 pb-2">
+              <h2 class="text-sm font-semibold text-white">Teaching & Fellowships</h2>
+              <p class="text-xs text-slate-400">Awards, competitive fellowships, and courses taught.</p>
+            </div>
+
+            <div class="space-y-3">
+              <div class="p-3 bg-slate-800/60 rounded-lg border border-slate-700 space-y-2">
+                <span class="text-xs font-semibold text-blue-400">Honors, Fellowships, and Awards</span>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-0.5">Fellowship Title</label>
+                  <input id="award1-title" type="text" value="Institute Doctoral Research Fellowship" class="w-full px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                </div>
+                <div class="flex justify-between gap-2">
+                  <input id="award1-inst" type="text" value="Ministry of Education (MoE), Govt. of India & IIT Kharagpur" class="w-3/4 px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white">
+                  <input id="award1-date" type="text" value="2024 – Present" class="w-1/4 px-2.5 py-1 text-xs rounded bg-slate-900 border border-slate-700 text-white text-right">
+                </div>
+              </div>
+
+              <div class="p-3 bg-slate-800/60 rounded-lg border border-slate-700 space-y-2">
+                <span class="text-xs font-semibold text-blue-400">Teaching Experience</span>
+                <label class="block text-xs text-slate-400">Courses / Teaching Assistant Responsibilities</label>
+                <textarea id="input-teaching-list" rows="3" class="w-full px-2.5 py-1.5 text-xs rounded bg-slate-900 border border-slate-700 text-white">Experimental Techniques in Thermal Engineering (ME60227)
+Applied Thermodynamics Lab (ME3022)</textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 6: Skills & References -->
+          <div id="skills-tab" class="tab-content hidden space-y-4">
+            <div class="border-b border-slate-700 pb-2">
+              <h2 class="text-sm font-semibold text-white">Technical Skills & References</h2>
+              <p class="text-xs text-slate-400">Computational expertise, tools, and referee professors.</p>
+            </div>
+
+            <div class="space-y-3">
+              <div>
+                <label class="block text-xs text-slate-300 mb-1">Numerical Methods & Solvers</label>
+                <input id="skills-numerical" type="text" value="Boundary Element Method (BEM), Lattice Boltzmann Method" class="w-full px-2.5 py-1 text-xs rounded bg-slate-800 border border-slate-700 text-white">
+              </div>
+
+              <div>
+                <label class="block text-xs text-slate-300 mb-1">Programming & HPC</label>
+                <input id="skills-prog" type="text" value="C++, Modern Fortran, Python (NumPy, SciPy, Matplotlib), CUDA GPU Acceleration, OpenMP, MPI, CMake, Git" class="w-full px-2.5 py-1 text-xs rounded bg-slate-800 border border-slate-700 text-white">
+              </div>
+
+              <div>
+                <label class="block text-xs text-slate-300 mb-1">CFD & Visualization Packages</label>
+                <input id="skills-cfd" type="text" value="ParaView (Python scripting), OpenFOAM, COMSOL Multiphysics, LaTeX" class="w-full px-2.5 py-1 text-xs rounded bg-slate-800 border border-slate-700 text-white">
+              </div>
+
+              <div>
+                <label class="block text-xs text-slate-300 mb-1">Languages</label>
+                <input id="skills-lang" type="text" value="English, Bengali, Hindi" class="w-full px-2.5 py-1 text-xs rounded bg-slate-800 border border-slate-700 text-white">
+              </div>
+
+              <div class="pt-2 border-t border-slate-700/60">
+                <span class="text-xs font-semibold text-blue-400 block mb-2">Academic References</span>
+                <div class="space-y-2">
+                  <div class="p-2.5 bg-slate-800/60 rounded border border-slate-700 space-y-1.5">
+                    <input id="ref1-name" type="text" value="Prof. Aditya Bandopadhyay (Ph.D. Advisor)" class="w-full px-2 py-0.5 text-xs font-medium bg-slate-900 border border-slate-700 text-white rounded">
+                    <input id="ref1-dept" type="text" value="Department of Mechanical Engineering, IIT Kharagpur" class="w-full px-2 py-0.5 text-xs bg-slate-900 border border-slate-700 text-slate-300 rounded">
+                    <input id="ref1-email" type="text" value="Email: aditya@mech.iitkgp.ac.in" class="w-full px-2 py-0.5 text-xs bg-slate-900 border border-slate-700 text-slate-300 rounded">
+                  </div>
+                  <div class="p-2.5 bg-slate-800/60 rounded border border-slate-700 space-y-1.5">
+                    <input id="ref2-name" type="text" value="Doctoral Scrutiny Committee (DSC)" class="w-full px-2 py-0.5 text-xs font-medium bg-slate-900 border border-slate-700 text-white rounded">
+                    <input id="ref2-dept" type="text" value="Department of Mechanical Engineering, IIT Kharagpur" class="w-full px-2 py-0.5 text-xs bg-slate-900 border border-slate-700 text-slate-300 rounded">
+                    <input id="ref2-addr" type="text" value="Kharagpur, West Bengal 721302, India" class="w-full px-2 py-0.5 text-xs bg-slate-900 border border-slate-700 text-slate-300 rounded">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- Right: Authentic Academic CV Live Paper Preview -->
+      <main class="flex-1 overflow-y-auto p-4 md:p-8 bg-slate-950 flex justify-center custom-scrollbar">
+        
+        <!-- Authentic Paper Sheet replicating cv.pdf -->
+        <div id="cv-paper-preview" class="cv-paper print-area w-full max-w-[800px] bg-white text-black p-10 md:p-14 shadow-2xl rounded-sm border border-slate-300 min-h-[1050px]">
+          
+          <!-- Document Header -->
+          <div class="text-center mb-2">
+            <h1 id="pv-name" class="text-2xl font-bold tracking-tight text-black mb-1">Rahul Mallick</h1>
+            <p id="pv-date" class="text-sm text-neutral-800 italic">November 2026</p>
+          </div>
+
+          <hr class="border-t border-black my-2">
+
+          <!-- Two-column contact block -->
+          <div class="grid grid-cols-2 text-xs leading-relaxed mb-6">
+            <div>
+              <p id="pv-lab" class="font-medium">Thermodynamics Lab</p>
+              <p id="pv-dept">Department of Mechanical Engineering</p>
+              <p id="pv-inst">Indian Institute of Technology (IIT) Kharagpur</p>
+              <p id="pv-addr">Kharagpur, West Bengal 721302, India</p>
+            </div>
+            <div class="text-left md:text-right">
+              <p><span class="font-medium">Email:</span> <span id="pv-email">rahul.mallick.24@kgpian.iitkgp.ac.in</span></p>
+              <p><span class="font-medium">Alt:</span> <span id="pv-alt-email">rahul.mallick0601@gmail.com</span></p>
+              <p><span class="font-medium">Phone:</span> <span id="pv-phone">+91-7602535675</span></p>
+              <p><span class="font-medium">Website:</span> <span id="pv-website">rahul-mallick001.github.io</span></p>
+              <p><span class="font-medium">LinkedIn:</span> <span id="pv-linkedin">linkedin.com/in/rmallick</span></p>
+              <p><span class="font-medium">ORCID:</span> <span id="pv-orcid">0009-0005-8922-563X</span></p>
+            </div>
+          </div>
+
+          <!-- Section: Academic Status -->
+          <div class="mb-5">
+            <h2 class="text-sm font-bold text-black border-b border-black pb-0.5 mb-2 uppercase tracking-wide">Academic Status</h2>
+            <div class="space-y-1.5 text-xs">
+              <div>
+                <p class="font-bold">Doctoral Research Scholar</p>
+                <div class="flex justify-between pl-3 text-neutral-900">
+                  <span>· Thermodynamics Lab, Department of Mechanical Engineering, IIT Kharagpur</span>
+                  <span class="font-medium shrink-0">2024 – Present</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section: Education -->
+          <div class="mb-5">
+            <h2 class="text-sm font-bold text-black border-b border-black pb-0.5 mb-2 uppercase tracking-wide">Education</h2>
+            <div class="space-y-2 text-xs">
+              <div>
+                <div class="flex justify-between font-bold">
+                  <span>Ph.D. in Mechanical Engineering, Indian Institute of Technology (IIT) Kharagpur</span>
+                  <span>2024 – Present</span>
+                </div>
+                <div class="pl-3 text-neutral-800 space-y-0.5">
+                  <p>· Advisor: Prof. Aditya Bandopadhyay</p>
+                  <p>· Focus: Interfacial Electrohydrodynamics, Boundary Element Method (BEM) for Deformable Droplets, Multiphase Lattice Boltzmann Method (LBM), and Electrokinetics.</p>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-bold">
+                  <span id="pv-edu2-title">Master of Engineering (ME) in Mechanical Engineering</span>
+                  <span id="pv-edu2-date">May 2024</span>
+                </div>
+                <div class="pl-3 text-neutral-800">
+                  <p id="pv-edu2-sub">· Jadavpur University · First Class (Specialization: Thermal)</p>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-bold">
+                  <span id="pv-edu3-title">Bachelor of Technology (B.Tech) in Mechanical Engineering</span>
+                  <span id="pv-edu3-date">May 2021</span>
+                </div>
+                <div class="pl-3 text-neutral-800">
+                  <p id="pv-edu3-sub">· Aliah University · First Class Honors</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section: Research Interests -->
+          <div class="mb-5">
+            <h2 class="text-sm font-bold text-black border-b border-black pb-0.5 mb-2 uppercase tracking-wide">Research Interests</h2>
+            <div class="text-xs space-y-1">
+              <p><span class="font-bold">Primary:</span> <span id="pv-primary-res">Interfacial Electrohydrodynamics (EHD), Multiphase Flows, Microfluidics</span></p>
+              <p><span class="font-bold">Secondary:</span> <span id="pv-secondary-res">Boundary Element Method (BEM), Lattice Boltzmann Method (LBM), High-Performance Scientific Computing</span></p>
+            </div>
+          </div>
+
+          <!-- Section: Publications -->
+          <div class="mb-5">
+            <h2 class="text-sm font-bold text-black border-b border-black pb-0.5 mb-2 uppercase tracking-wide">Publications</h2>
+            <ul class="list-disc list-inside text-xs space-y-1 text-neutral-800 pl-1">
+              <li>Manuscripts in preparation / under review.</li>
+            </ul>
+          </div>
+
+          <!-- Section: Conference Presentations -->
+          <div class="mb-5">
+            <h2 class="text-sm font-bold text-black border-b border-black pb-0.5 mb-2 uppercase tracking-wide">Conference Presentations</h2>
+            <p class="text-xs text-neutral-600 pl-1 italic">Presentations in progress.</p>
+          </div>
+
+          <!-- Section: Honors & Fellowships -->
+          <div class="mb-5">
+            <h2 class="text-sm font-bold text-black border-b border-black pb-0.5 mb-2 uppercase tracking-wide">Honors, Fellowships, and Awards</h2>
+            <div class="text-xs space-y-1.5">
+              <div>
+                <p class="font-bold">Institute Doctoral Research Fellowship</p>
+                <div class="flex justify-between pl-3 text-neutral-900">
+                  <span>· Ministry of Education (MoE), Government of India &amp; IIT Kharagpur</span>
+                  <span class="font-medium shrink-0">2024 – Present</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section: Teaching Experience -->
+          <div class="mb-5">
+            <h2 class="text-sm font-bold text-black border-b border-black pb-0.5 mb-2 uppercase tracking-wide">Teaching Experience</h2>
+            <div class="text-xs space-y-1 text-neutral-900">
+              <p class="font-bold">Indian Institute of Technology Kharagpur</p>
+              <div id="pv-teaching-items" class="pl-3 space-y-0.5">
+                <p>· Experimental Techniques in Thermal Engineering (ME60227)</p>
+                <p>· Applied Thermodynamics Lab (ME3022)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section: Technical Skills -->
+          <div class="mb-5">
+            <h2 class="text-sm font-bold text-black border-b border-black pb-0.5 mb-2 uppercase tracking-wide">Skills</h2>
+            <div class="text-xs space-y-1.5 text-neutral-900">
+              <p><span class="font-bold">Numerical Methods:</span> <span id="pv-skills-num">Boundary Element Method (BEM), Lattice Boltzmann Method</span></p>
+              <p><span class="font-bold">Programming &amp; HPC:</span> <span id="pv-skills-prog">C++, Modern Fortran, Python (NumPy, SciPy, Matplotlib), CUDA GPU Acceleration, OpenMP, MPI, CMake, Git</span></p>
+              <p><span class="font-bold">CFD &amp; Visualization:</span> <span id="pv-skills-cfd">ParaView (Python scripting), OpenFOAM, COMSOL Multiphysics, LaTeX</span></p>
+              <p><span class="font-bold">Languages:</span> <span id="pv-skills-lang">English, Bengali, Hindi</span></p>
+            </div>
+          </div>
+
+          <!-- Section: References -->
+          <div class="mb-3">
+            <h2 class="text-sm font-bold text-black border-b border-black pb-0.5 mb-2 uppercase tracking-wide">References</h2>
+            <div class="grid grid-cols-2 gap-4 text-xs">
+              <div>
+                <p class="font-bold">Prof. Aditya Bandopadhyay</p>
+                <p class="text-neutral-800">Ph.D. Advisor</p>
+                <p class="text-neutral-800">Department of Mechanical Engineering</p>
+                <p class="text-neutral-800">Indian Institute of Technology Kharagpur</p>
+                <p class="text-neutral-800">Email: aditya@mech.iitkgp.ac.in</p>
+              </div>
+              <div>
+                <p class="font-bold">Doctoral Scrutiny Committee (DSC)</p>
+                <p class="text-neutral-800">Department of Mechanical Engineering</p>
+                <p class="text-neutral-800">Indian Institute of Technology Kharagpur</p>
+                <p class="text-neutral-800">Kharagpur, West Bengal 721302, India</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- JavaScript for Live 2-Way Sync, Tabs, Print, LaTeX Generation -->
+  <script>
+    // Tab switching logic
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetTab = btn.getAttribute('data-tab');
+        tabBtns.forEach(b => {
+          b.classList.remove('bg-blue-600', 'text-white', 'font-semibold');
+          b.classList.add('hover:bg-slate-800', 'text-slate-300');
+        });
+        btn.classList.add('bg-blue-600', 'text-white', 'font-semibold');
+        btn.classList.remove('hover:bg-slate-800', 'text-slate-300');
+
+        tabContents.forEach(content => {
+          if (content.id === targetTab) {
+            content.classList.remove('hidden');
+          } else {
+            content.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Real-time two-way data binding
+    function bind(inputId, previewId, formatter) {
+      const input = document.getElementById(inputId);
+      const pv = document.getElementById(previewId);
+      if (!input || !pv) return;
+      input.addEventListener('input', () => {
+        pv.textContent = formatter ? formatter(input.value) : input.value;
+      });
+    }
+
+    bind('input-name', 'pv-name');
+    bind('input-date', 'pv-date');
+    bind('input-lab', 'pv-lab');
+    bind('input-dept', 'pv-dept');
+    bind('input-inst', 'pv-inst');
+    bind('input-addr', 'pv-addr');
+    bind('input-email', 'pv-email');
+    bind('input-alt-email', 'pv-alt-email');
+    bind('input-phone', 'pv-phone');
+    bind('input-website', 'pv-website');
+    bind('input-linkedin', 'pv-linkedin');
+    bind('input-orcid', 'pv-orcid');
+
+    bind('edu2-degree', 'pv-edu2-title');
+    bind('edu2-date', 'pv-edu2-date');
+    bind('edu2-inst', 'pv-edu2-sub', val => '· ' + val);
+
+    bind('edu3-degree', 'pv-edu3-title');
+    bind('edu3-date', 'pv-edu3-date');
+    bind('edu3-inst', 'pv-edu3-sub', val => '· ' + val);
+
+    bind('input-primary-res', 'pv-primary-res');
+    bind('input-secondary-res', 'pv-secondary-res');
+
+    bind('skills-numerical', 'pv-skills-num');
+    bind('skills-prog', 'pv-skills-prog');
+    bind('skills-cfd', 'pv-skills-cfd');
+    bind('skills-lang', 'pv-skills-lang');
+
+    // Teaching items multiline sync
+    const teachingInput = document.getElementById('input-teaching-list');
+    const teachingPreview = document.getElementById('pv-teaching-items');
+    if (teachingInput && teachingPreview) {
+      teachingInput.addEventListener('input', () => {
+        const lines = teachingInput.value.split('\n').filter(l => l.trim().length > 0);
+        teachingPreview.innerHTML = lines.map(line => `<p>· ${line.replace(/^·\s*/, '')}</p>`).join('');
+      });
+    }
+
+    // Print to PDF
+    document.getElementById('print-pdf-btn').addEventListener('click', () => {
+      window.print();
+    });
+
+    // LaTeX Code Generator
+    document.getElementById('export-tex-btn').addEventListener('click', () => {
+      const name = document.getElementById('input-name').value;
+      const date = document.getElementById('input-date').value;
+      const lab = document.getElementById('input-lab').value;
+      const dept = document.getElementById('input-dept').value;
+      const inst = document.getElementById('input-inst').value;
+      const addr = document.getElementById('input-addr').value;
+      const email = document.getElementById('input-email').value;
+      const altEmail = document.getElementById('input-alt-email').value;
+      const phone = document.getElementById('input-phone').value;
+      const web = document.getElementById('input-website').value;
+      const linkedin = document.getElementById('input-linkedin').value;
+      const orcid = document.getElementById('input-orcid').value;
+
+      const tex = `% Academic Curriculum Vitae
+% Layout and typography structured after Jae Hoon Choi's Academic CV (cv.pdf)
+\\documentclass[10pt,letterpaper]{article}
+\\usepackage[margin=0.75in]{geometry}
+\\usepackage[utf8]{inputenc}
+\\usepackage{times}
+\\usepackage{hyperref}
+\\usepackage{enumitem}
+
+\\hypersetup{
+    colorlinks=true,
+    urlcolor=black,
+    linkcolor=black
+}
+\\pagestyle{plain}
+
+\\begin{document}
+
+% ----------------- Header -----------------
+\\begin{center}
+    {\\LARGE \\textbf{${name}}}\\\\[3pt]
+    {\\normalsize ${date}}
+\\end{center}
+
+\\vspace{-4pt}
+\\hrule
+\\vspace{5pt}
+
+\\noindent
+\\begin{tabular*}{\\textwidth}{@{\\extracolsep{\\fill}}lr}
+    ${lab} & Phone: ${phone} \\\\
+    ${dept} & Email: \\href{mailto:${email}}{${email}} \\\\
+    ${inst} & Alt Email: \\href{mailto:${altEmail}}{${altEmail}} \\\\
+    ${addr} & Website: \\href{https://${web}}{${web}} \\\\
+    ORCID: ${orcid} & LinkedIn: \\href{https://${linkedin}}{${linkedin}}
+\\end{tabular*}
+
+\\medskip
+
+% ----------------- Academic Appointments -----------------
+\\noindent\\textbf{\\large Academic Status}
+\\vspace{2pt}
+\\hrule
+\\vspace{4pt}
+\\noindent\\textbf{Doctoral Research Scholar}\\\\
+\\hspace*{1em}$\\cdot$ ${lab}, ${dept}, ${inst} \\hfill 2024 -- Present
+
+\\medskip
+
+% ----------------- Education -----------------
+\\noindent\\textbf{\\large Education}
+\\vspace{2pt}
+\\hrule
+\\vspace{4pt}
+\\noindent\\textbf{Ph.D. in Mechanical Engineering}, ${inst} \\hfill 2024 -- Present\\\\
+\\hspace*{1em}$\\cdot$ Advisor: Prof. Aditya Bandopadhyay\\\\
+\\hspace*{1em}$\\cdot$ Focus: Interfacial Electrohydrodynamics, Boundary Element Method (BEM) for Deformable Droplets,\\\\
+\\hspace*{1.8em}Multiphase Lattice Boltzmann Method (LBM), and Electrokinetics.\\\\[2pt]
+\\noindent\\textbf{${document.getElementById('edu2-degree').value}}, Jadavpur University \\hfill ${document.getElementById('edu2-date').value}\\\\
+\\hspace*{1em}$\\cdot$ First Class (Specialization: Thermal)\\\\[2pt]
+\\noindent\\textbf{${document.getElementById('edu3-degree').value}}, Aliah University \\hfill ${document.getElementById('edu3-date').value}\\\\
+\\hspace*{1em}$\\cdot$ First Class Honors
+
+\\medskip
+
+% ----------------- Research Interests -----------------
+\\noindent\\textbf{\\large Research Interests}
+\\vspace{2pt}
+\\hrule
+\\vspace{4pt}
+\\noindent\\textbf{Primary:} ${document.getElementById('input-primary-res').value}\\\\
+\\noindent\\textbf{Secondary:} ${document.getElementById('input-secondary-res').value}
+
+\\medskip
+
+% ----------------- Publications -----------------
+\\noindent\\textbf{\\large Publications}
+\\vspace{2pt}
+\\hrule
+\\vspace{4pt}
+\\begin{enumerate}[leftmargin=1.8em, itemsep=2pt]
+\\item Manuscripts in preparation / under review.
+\\end{enumerate}
+
+\\medskip
+
+% ----------------- Presentations -----------------
+\\noindent\\textbf{\\large Conference Presentations}
+\\vspace{2pt}
+\\hrule
+\\vspace{4pt}
+\\begin{enumerate}[leftmargin=1.8em, itemsep=2pt]
+\\item Presentations in progress.
+\\end{enumerate}
+
+\\medskip
+
+% ----------------- Honors & Awards -----------------
+\\noindent\\textbf{\\large Honors, Fellowships, and Awards}
+\\vspace{2pt}
+\\hrule
+\\vspace{4pt}
+\\noindent\\textbf{Institute Doctoral Research Fellowship}\\\\
+\\hspace*{1em}$\\cdot$ Ministry of Education (MoE), Government of India \\& IIT Kharagpur \\hfill 2024 -- Present
+
+\\medskip
+
+% ----------------- Teaching Experience -----------------
+\\noindent\\textbf{\\large Teaching Experience}
+\\vspace{2pt}
+\\hrule
+\\vspace{4pt}
+\\noindent\\textbf{Indian Institute of Technology Kharagpur}\\\\
+\\hspace*{1em}$\\cdot$ Experimental Techniques in Thermal Engineering (ME60227)\\\\
+\\hspace*{1em}$\\cdot$ Applied Thermodynamics Lab (ME3022)
+
+\\medskip
+
+% ----------------- Technical Skills -----------------
+\\noindent\\textbf{\\large Skills}
+\\vspace{2pt}
+\\hrule
+\\vspace{4pt}
+\\noindent\\textbf{Numerical Methods:} ${document.getElementById('skills-numerical').value}\\\\[2pt]
+\\noindent\\textbf{Programming \\& HPC:} ${document.getElementById('skills-prog').value}\\\\[2pt]
+\\noindent\\textbf{CFD \\& Visualization:} ${document.getElementById('skills-cfd').value}\\\\[2pt]
+\\noindent\\textbf{Languages:} ${document.getElementById('skills-lang').value}
+
+\\medskip
+
+% ----------------- References -----------------
+\\noindent\\textbf{\\large References}
+\\vspace{2pt}
+\\hrule
+\\vspace{4pt}
+\\noindent
+\\begin{tabular*}{\\textwidth}{@{\\extracolsep{\\fill}}ll}
+    \\textbf{Prof. Aditya Bandopadhyay} (Ph.D. Advisor) & \\textbf{Doctoral Scrutiny Committee (DSC)} \\\\
+    Department of Mechanical Engineering & Department of Mechanical Engineering \\\\
+    Indian Institute of Technology Kharagpur & Indian Institute of Technology Kharagpur \\\\
+    Email: aditya@mech.iitkgp.ac.in & Kharagpur, West Bengal 721302, India
+\\end{tabular*}
+
+\\end{document}
+`;
+
+      const blob = new Blob([tex], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${name.replace(/\s+/g, '_')}_Academic_CV.tex`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    // Copy Markdown
+    document.getElementById('copy-markdown-btn').addEventListener('click', () => {
+      const name = document.getElementById('input-name').value;
+      const md = `# ${name} - Academic Curriculum Vitae
+
+**Affiliation:** ${document.getElementById('input-lab').value}, ${document.getElementById('input-dept').value}, ${document.getElementById('input-inst').value}  
+**Email:** ${document.getElementById('input-email').value} | ${document.getElementById('input-alt-email').value}  
+**Phone:** ${document.getElementById('input-phone').value}  
+**Website:** https://${document.getElementById('input-website').value} | **LinkedIn:** https://${document.getElementById('input-linkedin').value} | **ORCID:** ${document.getElementById('input-orcid').value}
+
+---
+
+## Academic Status
+- **Doctoral Research Scholar**, Thermodynamics Lab, Department of Mechanical Engineering, IIT Kharagpur (2024 – Present)
+
+## Education
+- **Ph.D. in Mechanical Engineering**, Indian Institute of Technology (IIT) Kharagpur (2024 – Present)
+  - Advisor: Prof. Aditya Bandopadhyay
+  - Focus: Interfacial Electrohydrodynamics, Boundary Element Method (BEM) for Deformable Droplets, Multiphase Lattice Boltzmann Method (LBM), and Electrokinetics.
+- **${document.getElementById('edu2-degree').value}**, Jadavpur University (${document.getElementById('edu2-date').value})
+  - First Class (Specialization: Thermal)
+- **${document.getElementById('edu3-degree').value}**, Aliah University (${document.getElementById('edu3-date').value})
+  - First Class Honors
+
+## Research Interests
+- **Primary:** ${document.getElementById('input-primary-res').value}
+- **Secondary:** ${document.getElementById('input-secondary-res').value}
+
+## Publications
+- Manuscripts in preparation / under review.
+
+## Conference Presentations
+- Presentations in progress.
+
+## Honors & Fellowships
+- **Institute Doctoral Research Fellowship**, Ministry of Education (MoE), Govt. of India & IIT Kharagpur (2024 – Present)
+
+## Teaching Experience
+- Experimental Techniques in Thermal Engineering (ME60227)
+- Applied Thermodynamics Lab (ME3022)
+
+## Skills
+- **Numerical Methods:** ${document.getElementById('skills-numerical').value}
+- **Programming & HPC:** ${document.getElementById('skills-prog').value}
+- **CFD & Visualization:** ${document.getElementById('skills-cfd').value}
+- **Languages:** ${document.getElementById('skills-lang').value}
+
+## References
+- **Prof. Aditya Bandopadhyay** (Ph.D. Advisor), Department of Mechanical Engineering, IIT Kharagpur (Email: aditya@mech.iitkgp.ac.in)
+- **Doctoral Scrutiny Committee (DSC)**, Department of Mechanical Engineering, IIT Kharagpur
+`;
+      navigator.clipboard.writeText(md).then(() => {
+        const btn = document.getElementById('copy-markdown-btn');
+        const orig = btn.innerHTML;
+        btn.innerHTML = `<span class="text-green-400">✓ Copied!</span>`;
+        setTimeout(() => { btn.innerHTML = orig; }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>

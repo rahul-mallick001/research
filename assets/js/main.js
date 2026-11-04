@@ -89,49 +89,9 @@ function initDialogLightDismissFallback() {
 }
 
 /* ==========================================================================
-   3. BibTeX Modal & Copy to Clipboard (Mallick & Bandopadhyay Publications)
+   3. BibTeX Modal & Copy to Clipboard (Publication Database)
    ========================================================================== */
-const BIBTEX_DATABASE = {
-  'mallick-bandopadhyay-pof-2025': `@article{mallick2025electrokinetics,
-  title = {Nonlinear electroosmotic flow and ion transport in charge-regulated nanochannels},
-  author = {Mallick, Rahul and Bandopadhyay, Aditya},
-  journal = {Physics of Fluids},
-  volume = {37},
-  number = {4},
-  pages = {042008},
-  year = {2025},
-  publisher = {AIP Publishing},
-  doi = {10.1063/5.0210452}
-}`,
-  'mallick-bandopadhyay-jfm-2024': `@article{mallick2024taylor,
-  title = {Boundary element analysis of electrohydrodynamic deformation and tip-streaming of leaky dielectric droplets},
-  author = {Mallick, Rahul and Bandopadhyay, Aditya},
-  journal = {Journal of Fluid Mechanics},
-  volume = {988},
-  pages = {A34},
-  year = {2024},
-  publisher = {Cambridge University Press},
-  doi = {10.1017/jfm.2024.312}
-}`,
-  'mallick-bandopadhyay-pre-2024': `@article{mallick2024lbm,
-  title = {Lattice Boltzmann modeling of coupled electrohydrodynamic multiphase flows in microfluidic channels},
-  author = {Mallick, Rahul and Bandopadhyay, Aditya},
-  journal = {Physical Review E},
-  volume = {109},
-  number = {3},
-  pages = {035304},
-  year = {2024},
-  publisher = {American Physical Society},
-  doi = {10.1103/PhysRevE.109.035304}
-}`,
-  'mallick-bandopadhyay-aps-2024': `@inproceedings{mallick2024interfacial,
-  title = {Interfacial dynamics and breakup of droplets under non-uniform electric fields},
-  author = {Mallick, Rahul and Bandopadhyay, Aditya},
-  booktitle = {77th Annual Meeting of the APS Division of Fluid Dynamics (DFD)},
-  address = {Salt Lake City, UT, USA},
-  year = {2024}
-}`
-};
+const BIBTEX_DATABASE = {};
 
 function initBibtexModals() {
   const bibtexDialog = document.getElementById('bibtex-dialog');

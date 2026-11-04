@@ -10,6 +10,14 @@ recession_indicator_widget.html
 website_content.json
 website/
 
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
 # OS and Editor files
 .DS_Store
 Thumbs.db
