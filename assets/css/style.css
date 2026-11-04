@@ -176,6 +176,7 @@ img, svg, video {
   border-radius: var(--radius-full);
   border: 2px solid var(--accent-primary);
   object-fit: cover;
+  object-position: center top;
 }
 
 .brand-text {
@@ -355,6 +356,7 @@ img, svg, video {
   height: 100%;
   border-radius: var(--radius-full);
   object-fit: cover;
+  object-position: center top;
   background-color: var(--bg-surface-elevated);
 }
 
@@ -487,33 +489,33 @@ img, svg, video {
 /* Highlight Highlights / Metrics Box */
 .metrics-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  margin-top: 0.75rem;
 }
 
 .metric-card {
   background: var(--bg-subtle);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1rem;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.6rem;
   text-align: center;
 }
 
 .metric-val {
   font-family: var(--font-serif);
-  font-size: 1.75rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--accent-primary);
   line-height: 1.1;
 }
 
 .metric-label {
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-top: 0.25rem;
+  letter-spacing: 0.04em;
+  margin-top: 0.15rem;
 }
 
 /* Section Container */
