@@ -1,0 +1,36 @@
+{
+  "has_published_papers": true,
+  "heading": "Journal Articles & Preprints",
+  "in_preparation_card": {
+    "title": "Manuscripts in Preparation & Under Review",
+    "description": "Computational research on Boundary Element Method (BEM) droplet electrohydrodynamics, dielectrophoretic field formulations, and multiphase Lattice Boltzmann algorithms is currently being prepared for peer-reviewed publication.",
+    "links": [
+      {
+        "label": "Explore Simulation Gallery →",
+        "url": "simulation/",
+        "class": "primary-btn"
+      },
+      {
+        "label": "View Research Methodology",
+        "url": "research/",
+        "class": "secondary-btn"
+      }
+    ]
+  },
+  "papers": [
+    {
+      "id": "mallick-2026-oscillatory-ehd",
+      "title": "Oscillatory Electrohydrodynamics of a Droplet in an Alternating Quadrupole Electric Field: Boundary Element Method Analysis",
+      "authors_html": "<strong>Rahul Mallick</strong> and Aditya Bandopadhyay",
+      "journal": "Submitted to International Journal of Multiphase Flow (IJMF)",
+      "year": 2026,
+      "type": "Under Review",
+      "status": "under_review",
+      "doi": "",
+      "doi_url": "",
+      "pdf": "",
+      "simulation_url": "simulation/#bem-droplet",
+      "bibtex": "@article{mallick2026oscillatory,\n  title={Oscillatory Electrohydrodynamics of a Droplet in an Alternating Quadrupole Electric Field: Boundary Element Method Analysis},\n  author={Mallick, Rahul and Bandopadhyay, Aditya},\n  journal={Submitted to International Journal of Multiphase Flow (IJMF)},\n  year={2026},\n  note={Under Review}\n}"
+    }
+  ]
+}

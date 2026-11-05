@@ -13,6 +13,7 @@ Zero external dependencies - standard library only (os, json, re, pathlib).
 import os
 import json
 import re
+import html
 from pathlib import Path
 
 # Paths
@@ -21,6 +22,7 @@ CONTENT_DIR = ROOT_DIR / "content"
 RESEARCH_DIR = CONTENT_DIR / "research"
 SIM_DIR = CONTENT_DIR / "simulations"
 PUBS_FILE = CONTENT_DIR / "publications" / "publications.json"
+PUBS_FILE_ALT = CONTENT_DIR / "publications" / "publication.json"
 REPOS_FILE = CONTENT_DIR / "repositories" / "repos.json"
 
 
@@ -65,7 +67,11 @@ def load_simulations():
 
 
 def load_publications():
-    return load_json(PUBS_FILE)
+    if PUBS_FILE.exists():
+        return load_json(PUBS_FILE)
+    if PUBS_FILE_ALT.exists():
+        return load_json(PUBS_FILE_ALT)
+    return {}
 
 
 def load_repositories():
@@ -366,12 +372,14 @@ def render_publications_section(pubs_data, is_home=False):
         </div>
       </div>"""
 
-    # If there are published papers:
+    # If there are published papers or under-review manuscripts:
     paper_articles = []
     for p in papers:
         doi_link = f"""<a href="{p.get('doi_url', '#')}" target="_blank" rel="noopener noreferrer" class="pub-btn">DOI: {p.get('doi', '')}</a>""" if p.get('doi') else ""
-        bib_btn = f"""<button type="button" class="pub-btn" data-bibtex-id="{p.get('id', '')}">BibTeX</button>""" if p.get('bibtex') else ""
-        pdf_link = f"""<a href="{prefix + p.get('pdf', 'cv.pdf')}" class="pub-btn" download>PDF</a>""" if p.get('pdf') else ""
+        bibtex_escaped = html.escape(p.get('bibtex', ''), quote=True)
+        bib_btn = f"""<button type="button" class="pub-btn" data-bibtex-id="{p.get('id', '')}" data-bibtex="{bibtex_escaped}">BibTeX</button>""" if p.get('bibtex') else ""
+        pdf_link = f"""<a href="{prefix + p['pdf']}" class="pub-btn" download>PDF</a>""" if p.get('pdf') else ""
+        sim_link = f"""<a href="{prefix + p['simulation_url']}" class="pub-btn">Simulation &rarr;</a>""" if p.get('simulation_url') else ""
         
         paper_articles.append(f"""        <article class="pub-item">
           <div class="pub-header">
@@ -385,6 +393,7 @@ def render_publications_section(pubs_data, is_home=False):
             {doi_link}
             {bib_btn}
             {pdf_link}
+            {sim_link}
           </div>
         </article>""")
 

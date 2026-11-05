@@ -102,7 +102,8 @@ function initBibtexModals() {
   document.querySelectorAll('[data-bibtex-id]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-bibtex-id');
-      const bibText = BIBTEX_DATABASE[id] || `@article{mallick2025,\n  author = {Mallick, Rahul and Bandopadhyay, Aditya},\n  year = {2025}\n}`;
+      const inlineBib = btn.getAttribute('data-bibtex');
+      const bibText = inlineBib || BIBTEX_DATABASE[id] || `@article{mallick2026,\n  author = {Mallick, Rahul and Bandopadhyay, Aditya},\n  year = {2026}\n}`;
       bibtexCodeEl.textContent = bibText;
       bibtexDialog.showModal();
     });
