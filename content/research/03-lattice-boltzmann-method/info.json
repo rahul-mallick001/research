@@ -1,0 +1,20 @@
+{
+  "order": 3,
+  "id": "lbm",
+  "category_badge": "Lattice Boltzmann Method",
+  "category_filter": "lbm",
+  "title": "GPU-Accelerated Multiphase Lattice Boltzmann Solvers",
+  "summary": "Mesoscopic hydrodynamics on D2Q9 and D3Q19 lattices with Shan-Chen pseudopotential and phase-field formulations for high density-ratio multiphase systems. Coupled with electrostatic Poisson solvers to model droplet coalescence, breakup, and contact line dynamics on patterned superhydrophobic substrates.",
+  "governing_equations": [
+    "f_i(\\mathbf{x} + \\mathbf{c}_i \\Delta t, t + \\Delta t) - f_i(\\mathbf{x}, t) = -\\frac{1}{\\tau}\\left[f_i - f_i^{\\mathrm{eq}}\\right] + \\Delta t \\, F_i"
+  ],
+  "cover_media": {
+    "type": "image",
+    "src": "assets/images/lbm-lattice.svg",
+    "alt": "Lattice Boltzmann Method Solvers"
+  },
+  "tags": ["Shan-Chen Model", "D2Q9/D3Q19 Lattices", "GPU Computing"],
+  "affiliation": "Lattice Boltzmann Modeling (LBM)",
+  "simulation_link": "simulation/",
+  "simulation_link_text": "View Simulation →"
+}

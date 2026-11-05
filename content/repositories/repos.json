@@ -1,0 +1,20 @@
+{
+  "github_username": "rahul-mallick001",
+  "github_profile_url": "https://github.com/rahul-mallick001",
+  "heading": "Open-Source Software & GitHub Repositories",
+  "subheading": "Scientific computing toolchains, boundary element method (BEM) algorithms, and Lattice Boltzmann multiphase solvers hosted on GitHub.",
+  "repositories": [
+    {
+      "name": "research",
+      "full_name": "rahul-mallick001/research",
+      "description": "Academic research portfolio and high-resolution computational simulation gallery for interfacial electrohydrodynamics, Taylor deformation, and dielectrophoresis.",
+      "language": "JavaScript / CSS / Python",
+      "stars": 0,
+      "forks": 0,
+      "topics": ["computational-fluid-dynamics", "bem", "lbm", "electrohydrodynamics", "scientific-computing"],
+      "html_url": "https://github.com/rahul-mallick001/research",
+      "is_pinned": true
+    }
+  ],
+  "auto_fetch_public_repos": true
+}

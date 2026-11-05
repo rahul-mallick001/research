@@ -1,0 +1,22 @@
+{
+  "order": 4,
+  "id": "ehd",
+  "category_badge": "Electrohydrodynamics",
+  "category_filter": "ehd",
+  "title": "Taylor-Melcher Leaky Dielectric Interfacial Dynamics",
+  "summary": "Investigating electrohydrodynamic droplet deformations governed by the competition between charge relaxation time ($t_e = \\varepsilon/\\sigma$) and hydrodynamic deformation time ($t_h = \\mu a / \\gamma$). Our work reveals non-linear quadrupolar recirculating flow structures and explains prolate-to-oblate transitions under AC and pulsed DC electric fields.",
+  "governing_equations": [
+    "\\left[\\kern-0.15em\\left[ \\mathbf{n} \\cdot \\mathbf{T}^H \\right]\\kern-0.15em\\right] + \\left[\\kern-0.15em\\left[ \\mathbf{n} \\cdot \\mathbf{T}^M \\right]\\kern-0.15em\\right] = \\gamma \\kappa \\mathbf{n}, \\quad \\tau_e = q_s E_t"
+  ],
+  "cover_media": {
+    "type": "video",
+    "mp4": "assets/media/BEM/droplet-uniform-field/Streamlines_Animation.mp4",
+    "poster": "assets/media/BEM/droplet-uniform-field/streamlines-poster.jpg",
+    "webp": "assets/media/BEM/droplet-uniform-field/Streamlines_Animation.webp",
+    "alt": "Taylor-Melcher EHD Droplet Circulation"
+  },
+  "tags": ["Taylor-Melcher Model", "Maxwell Stress Tensor", "Leaky Dielectrics"],
+  "affiliation": "In Collaboration with Prof. Aditya Bandopadhyay",
+  "simulation_link": "simulation/#bem-droplet",
+  "simulation_link_text": "View Circulation Video →"
+}

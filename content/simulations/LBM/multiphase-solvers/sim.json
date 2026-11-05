@@ -1,0 +1,23 @@
+{
+  "order": 4,
+  "id": "lbm-solvers",
+  "method_tag": "LBM",
+  "subtag": "In Post-Processing",
+  "category_filter": "lbm",
+  "title": "Lattice Boltzmann Multiphase Solvers (D2Q9/D3Q19)",
+  "description": "Mesoscopic Shan-Chen multiphase simulations for density ratios up to $1000:1$ and high Maxwell stress divergence. Video datasets capturing vortex shedding past micro-pillars and electro-osmotic ionic shielding in charge-regulated nanochannels are currently in post-processing and will be integrated here shortly.",
+  "media_type": "image",
+  "image": {
+    "src": "assets/images/lbm-lattice.svg",
+    "alt": "Lattice Boltzmann Method Simulation Stencil",
+    "style": "width: 80%; height: 80%; object-fit: contain; opacity: 0.85;"
+  },
+  "border_highlight": "1px dashed var(--accent-primary)",
+  "actions": [
+    {
+      "type": "link",
+      "label": "LBM Research Formulation →",
+      "url": "research/#lbm"
+    }
+  ]
+}

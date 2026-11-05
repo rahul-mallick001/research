@@ -1,0 +1,20 @@
+{
+  "order": 2,
+  "id": "bem",
+  "category_badge": "Boundary Element Method",
+  "category_filter": "bem",
+  "title": "Interfacial Droplet Deformation via High-Order BEM",
+  "summary": "Developing custom boundary element formulations with regularized Green's function kernels to solve creeping Stokes flow coupled with electrohydrodynamic Maxwell stress jumps across deformable interfaces. Mesh reparameterization algorithms prevent node clustering at sharp droplet tips during high electric capillary number tip-streaming.",
+  "governing_equations": [
+    "c_{ij} u_j(\\mathbf{x}_0) + \\int_\\Gamma u_j T_{ijk} n_k \\, d\\Gamma = \\int_\\Gamma \\Delta f_i G_{ij} \\, d\\Gamma + [\\Delta \\mathbf{T}^M] \\cdot \\mathbf{n}"
+  ],
+  "cover_media": {
+    "type": "image",
+    "src": "assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png",
+    "alt": "Boundary Element Method for Droplets & Field Validation"
+  },
+  "tags": ["Green's Singularity Kernels", "Stokes Boundary Integrals", "Tip-streaming"],
+  "affiliation": "Boundary Element Method (BEM)",
+  "simulation_link": "simulation/#bem-dep",
+  "simulation_link_text": "Inspect BEM Simulations →"
+}

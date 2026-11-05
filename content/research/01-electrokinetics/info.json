@@ -1,0 +1,21 @@
+{
+  "order": 1,
+  "id": "electrokinetics",
+  "category_badge": "Electrokinetics & EDL",
+  "category_filter": "electrokinetics",
+  "title": "Nonlinear Electroosmotic Transport in Nanochannels",
+  "summary": "Modeling ion concentration polarization, electric double layer (EDL) capacitance, and electroosmotic flow (EOF) in charged nanochannels. Surface chemistry equilibria (protonation/deprotonation) are dynamically coupled with non-linear Poisson-Boltzmann and Nernst-Planck systems to predict current-voltage characteristics and mass throughput.",
+  "governing_equations": [
+    "\\nabla^2 \\psi = -\\frac{\\rho_e}{\\varepsilon} = \\frac{2 z e n_0}{\\varepsilon} \\sinh\\left(\\frac{z e \\psi}{k_B T}\\right)",
+    "u_{\\mathrm{EOF}} = -\\frac{\\varepsilon \\zeta}{\\mu} E_x \\left[1 - \\frac{\\psi(y)}{\\zeta}\\right]"
+  ],
+  "cover_media": {
+    "type": "image",
+    "src": "assets/images/electrokinetics-diagram.svg",
+    "alt": "Electrokinetic Transport in Nanochannels"
+  },
+  "tags": ["Poisson-Nernst-Planck", "Debye Layer", "Nanochannel Transport"],
+  "affiliation": "Thermodynamics Lab, IIT Kharagpur",
+  "simulation_link": "simulation/",
+  "simulation_link_text": "View Simulation →"
+}

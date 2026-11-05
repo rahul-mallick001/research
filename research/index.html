@@ -58,6 +58,7 @@
           <li><a href="../research/" class="nav-link active">Research Area</a></li>
           <li><a href="../simulation/" class="nav-link">Simulation</a></li>
           <li><a href="../publication/" class="nav-link">Publication</a></li>
+          <li><a href="../repositories/" class="nav-link">Repositories</a></li>
           <li><a href="../cv/" class="nav-link">CV</a></li>
         </ul>
       </nav>
@@ -85,20 +86,20 @@
     <!-- Filter Buttons -->
     <div class="filter-bar" role="toolbar" aria-label="Filter research themes">
       <button class="filter-btn active" data-filter="all">All Areas</button>
-      <button class="filter-btn" data-filter="electrokinetics">Electrokinetics</button>
-      <button class="filter-btn" data-filter="bem">Boundary Element Method (BEM)</button>
-      <button class="filter-btn" data-filter="lbm">Lattice Boltzmann Method (LBM)</button>
-      <button class="filter-btn" data-filter="ehd">Electrohydrodynamics (EHD)</button>
+      <button class="filter-btn" data-filter="electrokinetics">Electrokinetics & EDL</button>
+      <button class="filter-btn" data-filter="bem">Boundary Element Method</button>
+      <button class="filter-btn" data-filter="lbm">Lattice Boltzmann Method</button>
+      <button class="filter-btn" data-filter="ehd">Electrohydrodynamics</button>
     </div>
 
     <!-- Research Cards -->
     <div class="projects-grid">
 
-      <!-- Theme 1: Electrokinetics -->
+      <!-- Theme: Electrokinetics & EDL -->
       <article class="project-card" id="electrokinetics" data-category="electrokinetics">
         <div class="project-card-media" style="height: 240px;">
           <img src="../assets/images/electrokinetics-diagram.svg" alt="Electrokinetic Transport in Nanochannels" loading="lazy">
-          <span class="project-badge">Electrokinetics &amp; EDL</span>
+          <span class="project-badge">Electrokinetics & EDL</span>
         </div>
         <div class="project-card-body">
           <h2 class="project-card-title">Nonlinear Electroosmotic Transport in Nanochannels</h2>
@@ -112,34 +113,34 @@
           </div>
           <div class="project-card-footer">
             <span style="font-size: 0.82rem; color: var(--text-muted);">Thermodynamics Lab, IIT Kharagpur</span>
-            <a href="../simulation/" class="project-action-btn">View Simulation &rarr;</a>
+            <a href="../simulation/" class="project-action-btn">View Simulation →</a>
           </div>
         </div>
       </article>
 
-      <!-- Theme 2: BEM -->
+      <!-- Theme: Boundary Element Method -->
       <article class="project-card" id="bem" data-category="bem">
         <div class="project-card-media" style="height: 240px; background: #0b1120;">
-          <img src="../assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png" alt="Boundary Element Method for Droplets & Field Validation" style="width: 100%; height: 100%; object-fit: contain;" loading="lazy">
+          <img src="../assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png" alt="Boundary Element Method for Droplets & Field Validation" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
           <span class="project-badge">Boundary Element Method</span>
         </div>
         <div class="project-card-body">
           <h2 class="project-card-title">Interfacial Droplet Deformation via High-Order BEM</h2>
           <p class="project-card-desc">
-            Developing custom boundary element formulations with regularized Green&apos;s function kernels to solve creeping Stokes flow coupled with electrohydrodynamic Maxwell stress jumps across deformable interfaces. Mesh reparameterization algorithms prevent node clustering at sharp droplet tips during high electric capillary number tip-streaming.
+            Developing custom boundary element formulations with regularized Green's function kernels to solve creeping Stokes flow coupled with electrohydrodynamic Maxwell stress jumps across deformable interfaces. Mesh reparameterization algorithms prevent node clustering at sharp droplet tips during high electric capillary number tip-streaming.
           </p>
           <div class="math-card">
-            <span class="math-card-label">Boundary Integral Formulation</span>
+            <span class="math-card-label">Governing Equations</span>
             $$c_{ij} u_j(\mathbf{x}_0) + \int_\Gamma u_j T_{ijk} n_k \, d\Gamma = \int_\Gamma \Delta f_i G_{ij} \, d\Gamma + [\Delta \mathbf{T}^M] \cdot \mathbf{n}$$
           </div>
           <div class="project-card-footer">
             <span style="font-size: 0.82rem; color: var(--text-muted);">Boundary Element Method (BEM)</span>
-            <a href="../simulation/#bem-dep" class="project-action-btn">Inspect BEM Simulations &rarr;</a>
+            <a href="../simulation/#bem-dep" class="project-action-btn">Inspect BEM Simulations →</a>
           </div>
         </div>
       </article>
 
-      <!-- Theme 3: LBM -->
+      <!-- Theme: Lattice Boltzmann Method -->
       <article class="project-card" id="lbm" data-category="lbm">
         <div class="project-card-media" style="height: 240px;">
           <img src="../assets/images/lbm-lattice.svg" alt="Lattice Boltzmann Method Solvers" loading="lazy">
@@ -151,17 +152,17 @@
             Mesoscopic hydrodynamics on D2Q9 and D3Q19 lattices with Shan-Chen pseudopotential and phase-field formulations for high density-ratio multiphase systems. Coupled with electrostatic Poisson solvers to model droplet coalescence, breakup, and contact line dynamics on patterned superhydrophobic substrates.
           </p>
           <div class="math-card">
-            <span class="math-card-label">Lattice BGK Algorithm</span>
+            <span class="math-card-label">Governing Equations</span>
             $$f_i(\mathbf{x} + \mathbf{c}_i \Delta t, t + \Delta t) - f_i(\mathbf{x}, t) = -\frac{1}{\tau}\left[f_i - f_i^{\mathrm{eq}}\right] + \Delta t \, F_i$$
           </div>
           <div class="project-card-footer">
             <span style="font-size: 0.82rem; color: var(--text-muted);">Lattice Boltzmann Modeling (LBM)</span>
-            <a href="../simulation/" class="project-action-btn">View Simulation &rarr;</a>
+            <a href="../simulation/" class="project-action-btn">View Simulation →</a>
           </div>
         </div>
       </article>
 
-      <!-- Theme 4: EHD -->
+      <!-- Theme: Electrohydrodynamics -->
       <article class="project-card" id="ehd" data-category="ehd">
         <div class="project-card-media" style="height: 240px; background: #0b1120;">
           <video autoplay loop muted playsinline controls poster="../assets/media/BEM/droplet-uniform-field/streamlines-poster.jpg" style="width: 100%; height: 100%; object-fit: contain;">
@@ -176,12 +177,12 @@
             Investigating electrohydrodynamic droplet deformations governed by the competition between charge relaxation time ($t_e = \varepsilon/\sigma$) and hydrodynamic deformation time ($t_h = \mu a / \gamma$). Our work reveals non-linear quadrupolar recirculating flow structures and explains prolate-to-oblate transitions under AC and pulsed DC electric fields.
           </p>
           <div class="math-card">
-            <span class="math-card-label">Interfacial Stress Balance</span>
+            <span class="math-card-label">Governing Equations</span>
             $$\left[\kern-0.15em\left[ \mathbf{n} \cdot \mathbf{T}^H \right]\kern-0.15em\right] + \left[\kern-0.15em\left[ \mathbf{n} \cdot \mathbf{T}^M \right]\kern-0.15em\right] = \gamma \kappa \mathbf{n}, \quad \tau_e = q_s E_t$$
           </div>
           <div class="project-card-footer">
             <span style="font-size: 0.82rem; color: var(--text-muted);">In Collaboration with Prof. Aditya Bandopadhyay</span>
-            <a href="../simulation/#bem-droplet" class="project-action-btn">View Circulation Video &rarr;</a>
+            <a href="../simulation/#bem-droplet" class="project-action-btn">View Circulation Video →</a>
           </div>
         </div>
       </article>
@@ -226,6 +227,7 @@
         <a href="../research/">Research Area</a>
         <a href="../simulation/">Simulation</a>
         <a href="../publication/">Publication</a>
+        <a href="../repositories/">Repositories</a>
         <a href="../cv/">CV</a>
       </nav>
     </div>

@@ -60,6 +60,7 @@
           <li><a href="research/" class="nav-link">Research Area</a></li>
           <li><a href="simulation/" class="nav-link">Simulation</a></li>
           <li><a href="publication/" class="nav-link">Publication</a></li>
+          <li><a href="repositories/" class="nav-link">Repositories</a></li>
           <li><a href="cv/" class="nav-link">CV</a></li>
         </ul>
       </nav>
@@ -215,80 +216,80 @@
 
       <!-- Simulation Animation Grid -->
       <div class="projects-grid">
-        <!-- Simulation Card 1: EHD Droplet Streamlines (BEM) -->
+        <!-- Simulation Card: EHD Droplet Deformation & Taylor-Melcher Circulation -->
         <div class="project-card">
           <div class="project-card-media" style="height: 240px; background: #0b1120;">
             <video autoplay loop muted playsinline controls poster="assets/media/BEM/droplet-uniform-field/streamlines-poster.jpg" style="width: 100%; height: 100%; object-fit: contain;">
               <source src="assets/media/BEM/droplet-uniform-field/Streamlines_Animation.mp4" type="video/mp4">
-              <img src="assets/media/BEM/droplet-uniform-field/Streamlines_Animation.webp" alt="Taylor-Melcher EHD Droplet Circulation" style="width: 100%; height: 100%; object-fit: contain;">
+              <img src="assets/media/BEM/droplet-uniform-field/Streamlines_Animation.webp" alt="Droplet Streamlines Animation" style="width: 100%; height: 100%; object-fit: contain;">
             </video>
             <span class="project-badge">BEM &middot; Taylor deformation</span>
           </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">Taylor-Melcher EHD Droplet Circulation &amp; Deformation</h3>
+            <h3 class="project-card-title">EHD Droplet Deformation & Taylor-Melcher Circulation</h3>
             <p class="project-card-desc">
-              Transient boundary element simulation of a leaky dielectric droplet under a uniform electric field, demonstrating quadrupolar vortex circulation and steady oblate deformation ($D \approx -0.0864$).
+              Axisymmetric boundary element simulation of an uncharged leaky dielectric droplet suspended in an immiscible fluid under a uniform DC electric field. Demonstrates transient dynamics starting from initial prolate perturbation ($D > 0$) settling into steady oblate equilibrium ($D \approx -0.0864$) accompanied by quadrupolar internal circulation vortices driven by interfacial free charge accumulation.
             </p>
             <div class="project-card-footer">
-              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">Taylor-Melcher &middot; BEM Solver</span>
-              <a href="simulation/#bem-droplet" class="project-action-btn">Inspect Animation &amp; Snapshots &rarr;</a>
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">BEM &middot; Taylor deformation</span>
+              <a href="simulation/#bem-droplet" class="project-action-btn">Inspect Simulation &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- Simulation Card 2: Liquid Bridge (BEM) -->
+        <!-- Simulation Card: Droplet Dielectrophoresis & Field Code Validation -->
+        <div class="project-card">
+          <div class="project-card-media" style="height: 240px; background: #0b1120;">
+            <img src="assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png" alt="Electric Field and Surface Charge Validation (Analytical vs BEM)" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
+            <span class="project-badge">BEM &middot; Nonuniform electric field</span>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-card-title">Droplet Dielectrophoresis & Field Code Validation</h3>
+            <p class="project-card-desc">
+              Rigorous mathematical verification of our boundary element electrostatic solver against exact analytical solutions for a droplet subjected to a non-uniform divergent electric field. Subplots show: (a) Applied field $\mathbf{E}_\infty$ & potential $\Phi_\infty$; (b) Field magnitude $|\mathbf{E}|/E_c$; (c) Normal electric field continuity $E_n$ matching exact theory; (d) Free surface charge density $q(\theta)$ across polar angles $\theta \in [0^\circ, 180^\circ]$.
+            </p>
+            <div class="project-card-footer">
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">BEM &middot; Nonuniform electric field</span>
+              <a href="simulation/#bem-dep" class="project-action-btn">Inspect Simulation &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulation Card: Capillary & EHD Liquid Bridges Between Cylinders -->
         <div class="project-card">
           <div class="project-card-media" style="height: 240px; background: #0b1120;">
             <video autoplay loop muted playsinline controls poster="assets/media/BEM/liquid-bridge/bridge-poster.jpg" style="width: 100%; height: 100%; object-fit: contain;">
               <source src="assets/media/BEM/liquid-bridge/bridge_streamlines_animation.mp4" type="video/mp4">
               <img src="assets/media/BEM/liquid-bridge/bridge_streamlines_animation.webp" alt="Liquid Bridge Animation" style="width: 100%; height: 100%; object-fit: contain;">
             </video>
-            <span class="project-badge">BEM &middot; Liquid Bridge</span>
+            <span class="project-badge">BEM &middot; Multi-Boundary</span>
           </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">Capillary &amp; EHD Liquid Bridges Between Cylinders</h3>
+            <h3 class="project-card-title">Capillary & EHD Liquid Bridges Between Cylinders</h3>
             <p class="project-card-desc">
-              Multi-boundary BEM simulation of an axisymmetric liquid bridge anchored between cylindrical electrodes, tracking deformation flow speed $|u|$ and continuation bifurcation limits up to $A_{\text{max}} = 12.09$.
+              Multi-boundary axisymmetric BEM modeling of an electrohydrodynamic liquid bridge anchored between two cylindrical electrodes ($+V_0$ and $-V_0$). Dynamic simulation traces the fluid deformation flow speed $|u|$ coupled with the continuation bifurcation diagram ($B_e = 12.0, B = 0.5, d = 0.5, \theta_0 = 15^\circ$) mapping bridge height $H_b = z_1(0) - z_2(0)$ versus cross-sectional area $A$ up to turning-point limit ($A_{\text{max}} = 12.09$).
             </p>
             <div class="project-card-footer">
-              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">Axisymmetric BEM &middot; Bifurcation</span>
-              <a href="simulation/#bem-bridge" class="project-action-btn">Inspect Bridge Dynamics &rarr;</a>
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">BEM &middot; Multi-Boundary</span>
+              <a href="simulation/#bem-bridge" class="project-action-btn">Inspect Simulation &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- Simulation Card 3: Non-Uniform Dielectrophoresis (BEM Validation) -->
+        <!-- Simulation Card: Lattice Boltzmann Multiphase Solvers (D2Q9/D3Q19) -->
         <div class="project-card">
           <div class="project-card-media" style="height: 240px; background: #0b1120;">
-            <img src="assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png" alt="Droplet Dielectrophoresis & Field Verification" style="width: 100%; height: 100%; object-fit: contain;">
-            <span class="project-badge">BEM &middot; Nonuniform electric field</span>
+            <img src="assets/images/lbm-lattice.svg" alt="Lattice Boltzmann Method Simulation Stencil" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
+            <span class="project-badge">LBM &middot; In Post-Processing</span>
           </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">Dielectrophoretic Field Distortion &amp; BEM Validation</h3>
+            <h3 class="project-card-title">Lattice Boltzmann Multiphase Solvers (D2Q9/D3Q19)</h3>
             <p class="project-card-desc">
-              Rigorous 4-panel code verification for a droplet in a non-uniform divergent electric field, comparing numerical BEM surface charges $q(\theta)$ and normal field $E_n$ against exact analytical theory.
+              Mesoscopic Shan-Chen multiphase simulations for density ratios up to $1000:1$ and high Maxwell stress divergence. Video datasets capturing vortex shedding past micro-pillars and electro-osmotic ionic shielding in charge-regulated nanochannels are currently in post-processing and will be integrated here shortly.
             </p>
             <div class="project-card-footer">
-              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">Gauss-Legendre &middot; Exact Theory</span>
-              <a href="simulation/#bem-dep" class="project-action-btn">Inspect 4-Panel Verification &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Simulation Card 4: LBM Multiphase Solver (Upcoming) -->
-        <div class="project-card" style="border: 1px dashed var(--accent-primary);">
-          <div class="project-card-media" style="height: 240px; background: rgba(14, 165, 233, 0.04);">
-            <img src="assets/images/lbm-lattice.svg" alt="LBM D2Q9 Multiphase Simulation" style="width: 80%; height: 80%; object-fit: contain; opacity: 0.85;">
-            <span class="project-badge" style="background: var(--accent-primary); color: #fff;">LBM &middot; In Post-Processing</span>
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-card-title">LBM Mesoscopic Vortex Shedding &amp; Multiphase Flows</h3>
-            <p class="project-card-desc">
-              D2Q9/D3Q19 lattice Boltzmann simulation data for multiphase fluids at density ratios up to $1000:1$ and nanochannel ion transport. Animation datasets currently in post-processing.
-            </p>
-            <div class="project-card-footer">
-              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">LBM D2Q9 &middot; Shan-Chen Scheme</span>
-              <a href="simulation/#lbm-solvers" class="project-action-btn">Upcoming Solvers &rarr;</a>
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">LBM &middot; In Post-Processing</span>
+              <a href="simulation/#lbm-solvers" class="project-action-btn">Inspect Simulation &rarr;</a>
             </div>
           </div>
         </div>
@@ -303,16 +304,16 @@
       </div>
 
       <div class="projects-grid">
-        <!-- Area 1: Electrokinetics -->
+        <!-- Area: Nonlinear Electroosmotic Transport in Nanochannels -->
         <article class="project-card" data-category="electrokinetics">
-          <div class="project-card-media">
-            <img src="assets/images/electrokinetics-diagram.svg" alt="Electrokinetic Transport in Nanochannels" loading="lazy">
-            <span class="project-badge">Electrokinetics</span>
-          </div>
+          <div class="project-card-media" style="height: 240px;">
+          <img src="assets/images/electrokinetics-diagram.svg" alt="Electrokinetic Transport in Nanochannels" loading="lazy">
+          <span class="project-badge">Electrokinetics & EDL</span>
+        </div>
           <div class="project-card-body">
             <h3 class="project-card-title">Nonlinear Electroosmotic Transport in Nanochannels</h3>
             <p class="project-card-desc">
-              Modeling ion partition, Debye screening layers, and electroosmotic slip velocities in charge-regulated micro- and nanofluidic conduits under high surface potential regimes.
+              Modeling ion concentration polarization, electric double layer (EDL) capacitance, and electroosmotic flow (EOF) in charged nanochannels. Surface chemistry equilibria (protonation/deprotonation) are dynamically coupled with non-linear Poisson-Boltzmann and Nernst-Planck systems to predict current-voltage characteristics and mass throughput.
             </p>
             <div class="project-card-footer">
               <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">Poisson-Nernst-Planck</span>
@@ -321,16 +322,16 @@
           </div>
         </article>
 
-        <!-- Area 2: BEM Droplets -->
+        <!-- Area: Interfacial Droplet Deformation via High-Order BEM -->
         <article class="project-card" data-category="bem">
-          <div class="project-card-media">
-            <img src="assets/images/bem-mesh.svg" alt="Boundary Element Method for Droplet Discretization" loading="lazy">
-            <span class="project-badge">Boundary Element Method</span>
-          </div>
+          <div class="project-card-media" style="height: 240px; background: #0b1120;">
+          <img src="assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png" alt="Boundary Element Method for Droplets & Field Validation" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
+          <span class="project-badge">Boundary Element Method</span>
+        </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">BEM Modeling of Interfacial Droplet Deformation</h3>
+            <h3 class="project-card-title">Interfacial Droplet Deformation via High-Order BEM</h3>
             <p class="project-card-desc">
-              High-accuracy boundary integral formulations for Stokes equations coupled with electric field Maxwell stresses, tracking dynamic droplet elongation, tip-streaming, and breakup.
+              Developing custom boundary element formulations with regularized Green's function kernels to solve creeping Stokes flow coupled with electrohydrodynamic Maxwell stress jumps across deformable interfaces. Mesh reparameterization algorithms prevent node clustering at sharp droplet tips during high electric capillary number tip-streaming.
             </p>
             <div class="project-card-footer">
               <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">Green's Singularity Kernels</span>
@@ -339,37 +340,40 @@
           </div>
         </article>
 
-        <!-- Area 3: LBM Solvers -->
+        <!-- Area: GPU-Accelerated Multiphase Lattice Boltzmann Solvers -->
         <article class="project-card" data-category="lbm">
-          <div class="project-card-media">
-            <img src="assets/images/lbm-lattice.svg" alt="Lattice Boltzmann Method D2Q9 Velocity Stencils" loading="lazy">
-            <span class="project-badge">Lattice Boltzmann Method</span>
-          </div>
+          <div class="project-card-media" style="height: 240px;">
+          <img src="assets/images/lbm-lattice.svg" alt="Lattice Boltzmann Method Solvers" loading="lazy">
+          <span class="project-badge">Lattice Boltzmann Method</span>
+        </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">Mesoscopic Multiphase LBM for Complex Conduits</h3>
+            <h3 class="project-card-title">GPU-Accelerated Multiphase Lattice Boltzmann Solvers</h3>
             <p class="project-card-desc">
-              D2Q9/D3Q19 mesoscopic hydrodynamic solvers implementing Shan-Chen multiphase interaction forces and electrokinetic force coupling on GPU-accelerated computing nodes.
+              Mesoscopic hydrodynamics on D2Q9 and D3Q19 lattices with Shan-Chen pseudopotential and phase-field formulations for high density-ratio multiphase systems. Coupled with electrostatic Poisson solvers to model droplet coalescence, breakup, and contact line dynamics on patterned superhydrophobic substrates.
             </p>
             <div class="project-card-footer">
-              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">D2Q9 · GPU CUDA Solver</span>
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">Shan-Chen Model</span>
               <a href="research/#lbm" class="project-action-btn">Read Details →</a>
             </div>
           </div>
         </article>
 
-        <!-- Area 4: Electrohydrodynamics -->
+        <!-- Area: Taylor-Melcher Leaky Dielectric Interfacial Dynamics -->
         <article class="project-card" data-category="ehd">
-          <div class="project-card-media">
-            <img src="assets/images/ehd-droplet.svg" alt="Taylor-Melcher Leaky Dielectric EHD Droplet" loading="lazy">
-            <span class="project-badge">Electrohydrodynamics</span>
-          </div>
+          <div class="project-card-media" style="height: 240px; background: #0b1120;">
+          <video autoplay loop muted playsinline controls poster="assets/media/BEM/droplet-uniform-field/streamlines-poster.jpg" style="width: 100%; height: 100%; object-fit: contain;">
+            <source src="assets/media/BEM/droplet-uniform-field/Streamlines_Animation.mp4" type="video/mp4">
+            <img src="assets/media/BEM/droplet-uniform-field/Streamlines_Animation.webp" alt="Taylor-Melcher EHD Droplet Circulation" style="width: 100%; height: 100%; object-fit: contain;">
+          </video>
+          <span class="project-badge">Electrohydrodynamics</span>
+        </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">Taylor-Melcher Electrohydrodynamic (EHD) Dynamics</h3>
+            <h3 class="project-card-title">Taylor-Melcher Leaky Dielectric Interfacial Dynamics</h3>
             <p class="project-card-desc">
-              Investigating interfacial charge relaxation timescales ($t_e / t_h$), leaky dielectric vortex circulations, prolate-to-oblate morphological transitions, and electro-coalescence.
+              Investigating electrohydrodynamic droplet deformations governed by the competition between charge relaxation time ($t_e = \varepsilon/\sigma$) and hydrodynamic deformation time ($t_h = \mu a / \gamma$). Our work reveals non-linear quadrupolar recirculating flow structures and explains prolate-to-oblate transitions under AC and pulsed DC electric fields.
             </p>
             <div class="project-card-footer">
-              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">Taylor-Melcher Theory</span>
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-faint);">Taylor-Melcher Model</span>
               <a href="research/#ehd" class="project-action-btn">Read Details →</a>
             </div>
           </div>
@@ -385,24 +389,75 @@
       </div>
 
       <div class="empty-state-card" style="background: var(--bg-surface); border: 1px dashed var(--border-color); border-radius: var(--radius-lg); padding: 2.5rem 2rem; text-align: center; margin-top: 1rem;">
-        <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(14, 165, 233, 0.1); color: var(--accent-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
-          <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(14, 165, 233, 0.1); color: var(--accent-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+          <svg style="width: 26px; height: 26px; fill: currentColor;" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
         </div>
         <h3 style="font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem;">
-          Manuscripts in Preparation &amp; Under Review
+          Manuscripts in Preparation & Under Review
         </h3>
         <p style="font-size: 0.92rem; color: var(--text-muted); max-width: 580px; margin: 0 auto 1.5rem; line-height: 1.6;">
           Computational research on Boundary Element Method (BEM) droplet electrohydrodynamics, dielectrophoretic field formulations, and multiphase Lattice Boltzmann algorithms is currently being prepared for peer-reviewed publication. Publications will be listed here upon acceptance.
         </p>
         <div style="display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
           <a href="simulation/" class="primary-btn">
-            Explore Simulation Gallery &rarr;
+            Explore Simulation Gallery →
           </a>
           <a href="research/" class="secondary-btn">
             View Research Methodology
           </a>
         </div>
       </div>
+    </section>
+
+    <!-- Repositories Section -->
+    <section class="section-wrapper" aria-labelledby="repositories-heading">
+      <div class="section-title-wrap">
+        <div>
+          <h2 id="repositories-heading" class="section-title">Open-Source Code &amp; Repositories</h2>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.2rem;">
+            Computational solvers, simulation toolchains, and boundary element algorithms hosted on GitHub.
+          </p>
+        </div>
+        <a href="repositories/" class="section-view-all">All Repositories &rarr;</a>
+      </div>
+
+      <!-- HOME_REPOSITORIES_GRID_START -->
+<div class="projects-grid" id="home-repositories-grid">
+      <article class="project-card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border-radius: var(--radius-lg); background: var(--bg-surface); border: 1px solid var(--border-color);">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <svg style="width: 20px; height: 20px; fill: var(--text-muted); shrink: 0;" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              <h2 style="font-family: var(--font-mono); font-size: 1.1rem; font-weight: 600; margin: 0;">
+                <a href="https://github.com/rahul-mallick001/research" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); text-decoration: none;">research</a>
+              </h2>
+            </div>
+            <span class="pub-type-badge" style="font-size: 0.72rem; padding: 0.2rem 0.5rem;">Pinned</span>
+          </div>
+
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+            Academic research portfolio and high-resolution computational simulation gallery for interfacial electrohydrodynamics, Taylor deformation, and dielectrophoresis.
+          </p>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; background: var(--bg-subtle); padding: 0.2rem 0.55rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); color: var(--text-muted);">computational-fluid-dynamics</span><span style="font-family: var(--font-mono); font-size: 0.72rem; background: var(--bg-subtle); padding: 0.2rem 0.55rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); color: var(--text-muted);">bem</span><span style="font-family: var(--font-mono); font-size: 0.72rem; background: var(--bg-subtle); padding: 0.2rem 0.55rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); color: var(--text-muted);">lbm</span><span style="font-family: var(--font-mono); font-size: 0.72rem; background: var(--bg-subtle); padding: 0.2rem 0.55rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); color: var(--text-muted);">electrohydrodynamics</span><span style="font-family: var(--font-mono); font-size: 0.72rem; background: var(--bg-subtle); padding: 0.2rem 0.55rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); color: var(--text-muted);">scientific-computing</span>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 0.85rem; font-size: 0.82rem; color: var(--text-muted);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <span style="display: flex; align-items: center; gap: 0.35rem;">
+              <span style="width: 9px; height: 9px; border-radius: 50%; background: #38bdf8; display: inline-block;"></span>
+              JavaScript / CSS / Python
+            </span>
+          </div>
+          <a href="https://github.com/rahul-mallick001/research" target="_blank" rel="noopener noreferrer" class="project-action-btn" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+            View on GitHub &rarr;
+          </a>
+        </div>
+      </article>
+      </div>
+    <!-- HOME_REPOSITORIES_GRID_END -->
     </section>
 
   </main>

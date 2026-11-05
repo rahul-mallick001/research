@@ -1,0 +1,48 @@
+{
+  "order": 1,
+  "id": "bem-droplet",
+  "method_tag": "BEM",
+  "subtag": "Taylor deformation",
+  "category_filter": "bem ehd",
+  "title": "EHD Droplet Deformation & Taylor-Melcher Circulation",
+  "description": "Axisymmetric boundary element simulation of an uncharged leaky dielectric droplet suspended in an immiscible fluid under a uniform DC electric field. Demonstrates transient dynamics starting from initial prolate perturbation ($D > 0$) settling into steady oblate equilibrium ($D \\approx -0.0864$) accompanied by quadrupolar internal circulation vortices driven by interfacial free charge accumulation.",
+  "media_type": "video_switcher",
+  "default_video": {
+    "mp4": "assets/media/BEM/droplet-uniform-field/Streamlines_Animation.mp4",
+    "poster": "assets/media/BEM/droplet-uniform-field/streamlines-poster.jpg",
+    "webp": "assets/media/BEM/droplet-uniform-field/Streamlines_Animation.webp",
+    "alt": "Droplet Streamlines Animation"
+  },
+  "switch_options": [
+    {
+      "label": "▶ Streamlines Animation",
+      "mp4": "assets/media/BEM/droplet-uniform-field/Streamlines_Animation.mp4",
+      "poster": "assets/media/BEM/droplet-uniform-field/streamlines-poster.jpg"
+    },
+    {
+      "label": "📈 Deformation D(t) Plot",
+      "mp4": "assets/media/BEM/droplet-uniform-field/deformation_vs_time.mp4",
+      "poster": "assets/media/BEM/droplet-uniform-field/deformation-poster.jpg"
+    }
+  ],
+  "lightbox_snapshot": {
+    "button_label": "Time Snapshots",
+    "src": "assets/media/BEM/droplet-uniform-field/streamline_time_snapshots.png",
+    "title": "Transient Streamline Snapshots: t = 0.0 s to 10.0 s",
+    "description": "6-panel temporal evolution capturing Taylor-Melcher 4-quadrant circulation and steady oblate deformation (D = -0.0864)."
+  },
+  "actions": [
+    {
+      "type": "lightbox",
+      "label": "Inspect 6-Time Snapshot Progression →",
+      "src": "assets/media/BEM/droplet-uniform-field/streamline_time_snapshots.png",
+      "title": "Transient Streamline Snapshots: t = 0.0 s to 10.0 s",
+      "description": "6-panel temporal evolution capturing Taylor-Melcher 4-quadrant circulation and steady oblate deformation (D = -0.0864)."
+    },
+    {
+      "type": "link",
+      "label": "EHD Physics Formulation",
+      "url": "research/#ehd"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "order": 3,
+  "id": "bem-bridge",
+  "method_tag": "BEM",
+  "subtag": "Multi-Boundary",
+  "category_filter": "bem ehd",
+  "title": "Capillary & EHD Liquid Bridges Between Cylinders",
+  "description": "Multi-boundary axisymmetric BEM modeling of an electrohydrodynamic liquid bridge anchored between two cylindrical electrodes ($+V_0$ and $-V_0$). Dynamic simulation traces the fluid deformation flow speed $|u|$ coupled with the continuation bifurcation diagram ($B_e = 12.0, B = 0.5, d = 0.5, \\theta_0 = 15^\\circ$) mapping bridge height $H_b = z_1(0) - z_2(0)$ versus cross-sectional area $A$ up to turning-point limit ($A_{\\text{max}} = 12.09$).",
+  "media_type": "video",
+  "video": {
+    "mp4": "assets/media/BEM/liquid-bridge/bridge_streamlines_animation.mp4",
+    "poster": "assets/media/BEM/liquid-bridge/bridge-poster.jpg",
+    "webp": "assets/media/BEM/liquid-bridge/bridge_streamlines_animation.webp",
+    "alt": "Liquid Bridge Animation"
+  },
+  "actions": [
+    {
+      "type": "lightbox",
+      "label": "View Bifurcation Diagram →",
+      "src": "assets/media/BEM/liquid-bridge/bridge-poster.jpg",
+      "title": "Liquid Bridge Bifurcation Diagram & Streamlines",
+      "description": "Equilibrium continuation branch and turning point limit at A_max = 12.09 under Electric Bond number Be = 12.0."
+    },
+    {
+      "type": "link",
+      "label": "BEM Solver Method Details",
+      "url": "research/#bem"
+    }
+  ]
+}

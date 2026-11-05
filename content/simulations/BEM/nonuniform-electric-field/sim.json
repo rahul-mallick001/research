@@ -1,0 +1,30 @@
+{
+  "order": 2,
+  "id": "bem-dep",
+  "method_tag": "BEM",
+  "subtag": "Nonuniform electric field",
+  "category_filter": "bem ehd",
+  "title": "Droplet Dielectrophoresis & Field Code Validation",
+  "description": "Rigorous mathematical verification of our boundary element electrostatic solver against exact analytical solutions for a droplet subjected to a non-uniform divergent electric field. Subplots show: (a) Applied field $\\mathbf{E}_\\infty$ & potential $\\Phi_\\infty$; (b) Field magnitude $|\\mathbf{E}|/E_c$; (c) Normal electric field continuity $E_n$ matching exact theory; (d) Free surface charge density $q(\\theta)$ across polar angles $\\theta \\in [0^\\circ, 180^\\circ]$.",
+  "media_type": "image_lightbox",
+  "image": {
+    "src": "assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png",
+    "alt": "Electric Field and Surface Charge Validation (Analytical vs BEM)",
+    "lightbox_title": "Droplet Dielectrophoresis: Electric Field Distortion & BEM Validation",
+    "lightbox_desc": "4-panel analysis: (a) Applied divergent field and potential; (b) Field magnitude |E|/Ec; (c) Normal field En,ext and En,int comparison (Analytical vs BEM); (d) Interfacial surface charge q(θ) and tangential field Et across polar angle θ."
+  },
+  "actions": [
+    {
+      "type": "lightbox",
+      "label": "Enlarge 4-Panel Verification Figure →",
+      "src": "assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png",
+      "title": "Droplet Dielectrophoresis: Electric Field Distortion & BEM Validation",
+      "description": "4-panel analysis: (a) Applied divergent field and potential; (b) Field magnitude |E|/Ec; (c) Normal field En,ext and En,int comparison (Analytical vs BEM); (d) Interfacial surface charge q(θ) and tangential field Et across polar angle θ."
+    },
+    {
+      "type": "link",
+      "label": "BEM Numerical Method",
+      "url": "research/#bem"
+    }
+  ]
+}

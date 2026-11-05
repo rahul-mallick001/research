@@ -1,0 +1,290 @@
+{
+  "research": [
+    {
+      "order": 1,
+      "id": "electrokinetics",
+      "category_badge": "Electrokinetics & EDL",
+      "category_filter": "electrokinetics",
+      "title": "Nonlinear Electroosmotic Transport in Nanochannels",
+      "summary": "Modeling ion concentration polarization, electric double layer (EDL) capacitance, and electroosmotic flow (EOF) in charged nanochannels. Surface chemistry equilibria (protonation/deprotonation) are dynamically coupled with non-linear Poisson-Boltzmann and Nernst-Planck systems to predict current-voltage characteristics and mass throughput.",
+      "governing_equations": [
+        "\\nabla^2 \\psi = -\\frac{\\rho_e}{\\varepsilon} = \\frac{2 z e n_0}{\\varepsilon} \\sinh\\left(\\frac{z e \\psi}{k_B T}\\right)",
+        "u_{\\mathrm{EOF}} = -\\frac{\\varepsilon \\zeta}{\\mu} E_x \\left[1 - \\frac{\\psi(y)}{\\zeta}\\right]"
+      ],
+      "cover_media": {
+        "type": "image",
+        "src": "assets/images/electrokinetics-diagram.svg",
+        "alt": "Electrokinetic Transport in Nanochannels"
+      },
+      "tags": [
+        "Poisson-Nernst-Planck",
+        "Debye Layer",
+        "Nanochannel Transport"
+      ],
+      "affiliation": "Thermodynamics Lab, IIT Kharagpur",
+      "simulation_link": "simulation/",
+      "simulation_link_text": "View Simulation \u2192",
+      "_folder": "01-electrokinetics"
+    },
+    {
+      "order": 2,
+      "id": "bem",
+      "category_badge": "Boundary Element Method",
+      "category_filter": "bem",
+      "title": "Interfacial Droplet Deformation via High-Order BEM",
+      "summary": "Developing custom boundary element formulations with regularized Green's function kernels to solve creeping Stokes flow coupled with electrohydrodynamic Maxwell stress jumps across deformable interfaces. Mesh reparameterization algorithms prevent node clustering at sharp droplet tips during high electric capillary number tip-streaming.",
+      "governing_equations": [
+        "c_{ij} u_j(\\mathbf{x}_0) + \\int_\\Gamma u_j T_{ijk} n_k \\, d\\Gamma = \\int_\\Gamma \\Delta f_i G_{ij} \\, d\\Gamma + [\\Delta \\mathbf{T}^M] \\cdot \\mathbf{n}"
+      ],
+      "cover_media": {
+        "type": "image",
+        "src": "assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png",
+        "alt": "Boundary Element Method for Droplets & Field Validation"
+      },
+      "tags": [
+        "Green's Singularity Kernels",
+        "Stokes Boundary Integrals",
+        "Tip-streaming"
+      ],
+      "affiliation": "Boundary Element Method (BEM)",
+      "simulation_link": "simulation/#bem-dep",
+      "simulation_link_text": "Inspect BEM Simulations \u2192",
+      "_folder": "02-boundary-element-method"
+    },
+    {
+      "order": 3,
+      "id": "lbm",
+      "category_badge": "Lattice Boltzmann Method",
+      "category_filter": "lbm",
+      "title": "GPU-Accelerated Multiphase Lattice Boltzmann Solvers",
+      "summary": "Mesoscopic hydrodynamics on D2Q9 and D3Q19 lattices with Shan-Chen pseudopotential and phase-field formulations for high density-ratio multiphase systems. Coupled with electrostatic Poisson solvers to model droplet coalescence, breakup, and contact line dynamics on patterned superhydrophobic substrates.",
+      "governing_equations": [
+        "f_i(\\mathbf{x} + \\mathbf{c}_i \\Delta t, t + \\Delta t) - f_i(\\mathbf{x}, t) = -\\frac{1}{\\tau}\\left[f_i - f_i^{\\mathrm{eq}}\\right] + \\Delta t \\, F_i"
+      ],
+      "cover_media": {
+        "type": "image",
+        "src": "assets/images/lbm-lattice.svg",
+        "alt": "Lattice Boltzmann Method Solvers"
+      },
+      "tags": [
+        "Shan-Chen Model",
+        "D2Q9/D3Q19 Lattices",
+        "GPU Computing"
+      ],
+      "affiliation": "Lattice Boltzmann Modeling (LBM)",
+      "simulation_link": "simulation/",
+      "simulation_link_text": "View Simulation \u2192",
+      "_folder": "03-lattice-boltzmann-method"
+    },
+    {
+      "order": 4,
+      "id": "ehd",
+      "category_badge": "Electrohydrodynamics",
+      "category_filter": "ehd",
+      "title": "Taylor-Melcher Leaky Dielectric Interfacial Dynamics",
+      "summary": "Investigating electrohydrodynamic droplet deformations governed by the competition between charge relaxation time ($t_e = \\varepsilon/\\sigma$) and hydrodynamic deformation time ($t_h = \\mu a / \\gamma$). Our work reveals non-linear quadrupolar recirculating flow structures and explains prolate-to-oblate transitions under AC and pulsed DC electric fields.",
+      "governing_equations": [
+        "\\left[\\kern-0.15em\\left[ \\mathbf{n} \\cdot \\mathbf{T}^H \\right]\\kern-0.15em\\right] + \\left[\\kern-0.15em\\left[ \\mathbf{n} \\cdot \\mathbf{T}^M \\right]\\kern-0.15em\\right] = \\gamma \\kappa \\mathbf{n}, \\quad \\tau_e = q_s E_t"
+      ],
+      "cover_media": {
+        "type": "video",
+        "mp4": "assets/media/BEM/droplet-uniform-field/Streamlines_Animation.mp4",
+        "poster": "assets/media/BEM/droplet-uniform-field/streamlines-poster.jpg",
+        "webp": "assets/media/BEM/droplet-uniform-field/Streamlines_Animation.webp",
+        "alt": "Taylor-Melcher EHD Droplet Circulation"
+      },
+      "tags": [
+        "Taylor-Melcher Model",
+        "Maxwell Stress Tensor",
+        "Leaky Dielectrics"
+      ],
+      "affiliation": "In Collaboration with Prof. Aditya Bandopadhyay",
+      "simulation_link": "simulation/#bem-droplet",
+      "simulation_link_text": "View Circulation Video \u2192",
+      "_folder": "04-electrohydrodynamics"
+    }
+  ],
+  "simulations": [
+    {
+      "order": 1,
+      "id": "bem-droplet",
+      "method_tag": "BEM",
+      "subtag": "Taylor deformation",
+      "category_filter": "bem ehd",
+      "title": "EHD Droplet Deformation & Taylor-Melcher Circulation",
+      "description": "Axisymmetric boundary element simulation of an uncharged leaky dielectric droplet suspended in an immiscible fluid under a uniform DC electric field. Demonstrates transient dynamics starting from initial prolate perturbation ($D > 0$) settling into steady oblate equilibrium ($D \\approx -0.0864$) accompanied by quadrupolar internal circulation vortices driven by interfacial free charge accumulation.",
+      "media_type": "video_switcher",
+      "default_video": {
+        "mp4": "assets/media/BEM/droplet-uniform-field/Streamlines_Animation.mp4",
+        "poster": "assets/media/BEM/droplet-uniform-field/streamlines-poster.jpg",
+        "webp": "assets/media/BEM/droplet-uniform-field/Streamlines_Animation.webp",
+        "alt": "Droplet Streamlines Animation"
+      },
+      "switch_options": [
+        {
+          "label": "\u25b6 Streamlines Animation",
+          "mp4": "assets/media/BEM/droplet-uniform-field/Streamlines_Animation.mp4",
+          "poster": "assets/media/BEM/droplet-uniform-field/streamlines-poster.jpg"
+        },
+        {
+          "label": "\ud83d\udcc8 Deformation D(t) Plot",
+          "mp4": "assets/media/BEM/droplet-uniform-field/deformation_vs_time.mp4",
+          "poster": "assets/media/BEM/droplet-uniform-field/deformation-poster.jpg"
+        }
+      ],
+      "lightbox_snapshot": {
+        "button_label": "Time Snapshots",
+        "src": "assets/media/BEM/droplet-uniform-field/streamline_time_snapshots.png",
+        "title": "Transient Streamline Snapshots: t = 0.0 s to 10.0 s",
+        "description": "6-panel temporal evolution capturing Taylor-Melcher 4-quadrant circulation and steady oblate deformation (D = -0.0864)."
+      },
+      "actions": [
+        {
+          "type": "lightbox",
+          "label": "Inspect 6-Time Snapshot Progression \u2192",
+          "src": "assets/media/BEM/droplet-uniform-field/streamline_time_snapshots.png",
+          "title": "Transient Streamline Snapshots: t = 0.0 s to 10.0 s",
+          "description": "6-panel temporal evolution capturing Taylor-Melcher 4-quadrant circulation and steady oblate deformation (D = -0.0864)."
+        },
+        {
+          "type": "link",
+          "label": "EHD Physics Formulation",
+          "url": "research/#ehd"
+        }
+      ],
+      "_path": "simulations\\BEM\\taylor-deformation"
+    },
+    {
+      "order": 2,
+      "id": "bem-dep",
+      "method_tag": "BEM",
+      "subtag": "Nonuniform electric field",
+      "category_filter": "bem ehd",
+      "title": "Droplet Dielectrophoresis & Field Code Validation",
+      "description": "Rigorous mathematical verification of our boundary element electrostatic solver against exact analytical solutions for a droplet subjected to a non-uniform divergent electric field. Subplots show: (a) Applied field $\\mathbf{E}_\\infty$ & potential $\\Phi_\\infty$; (b) Field magnitude $|\\mathbf{E}|/E_c$; (c) Normal electric field continuity $E_n$ matching exact theory; (d) Free surface charge density $q(\\theta)$ across polar angles $\\theta \\in [0^\\circ, 180^\\circ]$.",
+      "media_type": "image_lightbox",
+      "image": {
+        "src": "assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png",
+        "alt": "Electric Field and Surface Charge Validation (Analytical vs BEM)",
+        "lightbox_title": "Droplet Dielectrophoresis: Electric Field Distortion & BEM Validation",
+        "lightbox_desc": "4-panel analysis: (a) Applied divergent field and potential; (b) Field magnitude |E|/Ec; (c) Normal field En,ext and En,int comparison (Analytical vs BEM); (d) Interfacial surface charge q(\u03b8) and tangential field Et across polar angle \u03b8."
+      },
+      "actions": [
+        {
+          "type": "lightbox",
+          "label": "Enlarge 4-Panel Verification Figure \u2192",
+          "src": "assets/media/BEM/droplet-nonuniform-field/combined_electric_field_analysis.png",
+          "title": "Droplet Dielectrophoresis: Electric Field Distortion & BEM Validation",
+          "description": "4-panel analysis: (a) Applied divergent field and potential; (b) Field magnitude |E|/Ec; (c) Normal field En,ext and En,int comparison (Analytical vs BEM); (d) Interfacial surface charge q(\u03b8) and tangential field Et across polar angle \u03b8."
+        },
+        {
+          "type": "link",
+          "label": "BEM Numerical Method",
+          "url": "research/#bem"
+        }
+      ],
+      "_path": "simulations\\BEM\\nonuniform-electric-field"
+    },
+    {
+      "order": 3,
+      "id": "bem-bridge",
+      "method_tag": "BEM",
+      "subtag": "Multi-Boundary",
+      "category_filter": "bem ehd",
+      "title": "Capillary & EHD Liquid Bridges Between Cylinders",
+      "description": "Multi-boundary axisymmetric BEM modeling of an electrohydrodynamic liquid bridge anchored between two cylindrical electrodes ($+V_0$ and $-V_0$). Dynamic simulation traces the fluid deformation flow speed $|u|$ coupled with the continuation bifurcation diagram ($B_e = 12.0, B = 0.5, d = 0.5, \\theta_0 = 15^\\circ$) mapping bridge height $H_b = z_1(0) - z_2(0)$ versus cross-sectional area $A$ up to turning-point limit ($A_{\\text{max}} = 12.09$).",
+      "media_type": "video",
+      "video": {
+        "mp4": "assets/media/BEM/liquid-bridge/bridge_streamlines_animation.mp4",
+        "poster": "assets/media/BEM/liquid-bridge/bridge-poster.jpg",
+        "webp": "assets/media/BEM/liquid-bridge/bridge_streamlines_animation.webp",
+        "alt": "Liquid Bridge Animation"
+      },
+      "actions": [
+        {
+          "type": "lightbox",
+          "label": "View Bifurcation Diagram \u2192",
+          "src": "assets/media/BEM/liquid-bridge/bridge-poster.jpg",
+          "title": "Liquid Bridge Bifurcation Diagram & Streamlines",
+          "description": "Equilibrium continuation branch and turning point limit at A_max = 12.09 under Electric Bond number Be = 12.0."
+        },
+        {
+          "type": "link",
+          "label": "BEM Solver Method Details",
+          "url": "research/#bem"
+        }
+      ],
+      "_path": "simulations\\BEM\\liquid-bridge"
+    },
+    {
+      "order": 4,
+      "id": "lbm-solvers",
+      "method_tag": "LBM",
+      "subtag": "In Post-Processing",
+      "category_filter": "lbm",
+      "title": "Lattice Boltzmann Multiphase Solvers (D2Q9/D3Q19)",
+      "description": "Mesoscopic Shan-Chen multiphase simulations for density ratios up to $1000:1$ and high Maxwell stress divergence. Video datasets capturing vortex shedding past micro-pillars and electro-osmotic ionic shielding in charge-regulated nanochannels are currently in post-processing and will be integrated here shortly.",
+      "media_type": "image",
+      "image": {
+        "src": "assets/images/lbm-lattice.svg",
+        "alt": "Lattice Boltzmann Method Simulation Stencil",
+        "style": "width: 80%; height: 80%; object-fit: contain; opacity: 0.85;"
+      },
+      "border_highlight": "1px dashed var(--accent-primary)",
+      "actions": [
+        {
+          "type": "link",
+          "label": "LBM Research Formulation \u2192",
+          "url": "research/#lbm"
+        }
+      ],
+      "_path": "simulations\\LBM\\multiphase-solvers"
+    }
+  ],
+  "publications": {
+    "has_published_papers": false,
+    "in_preparation_card": {
+      "title": "Manuscripts in Preparation & Under Review",
+      "description": "Computational research on Boundary Element Method (BEM) droplet electrohydrodynamics, dielectrophoretic field formulations, and multiphase Lattice Boltzmann algorithms is currently being prepared for peer-reviewed publication. Publications will be listed here upon acceptance.",
+      "links": [
+        {
+          "label": "Explore Simulation Gallery \u2192",
+          "url": "simulation/",
+          "class": "primary-btn"
+        },
+        {
+          "label": "View Research Methodology",
+          "url": "research/",
+          "class": "secondary-btn"
+        }
+      ]
+    },
+    "papers": []
+  },
+  "repositories": {
+    "github_username": "rahul-mallick001",
+    "github_profile_url": "https://github.com/rahul-mallick001",
+    "heading": "Open-Source Software & GitHub Repositories",
+    "subheading": "Scientific computing toolchains, boundary element method (BEM) algorithms, and Lattice Boltzmann multiphase solvers hosted on GitHub.",
+    "repositories": [
+      {
+        "name": "research",
+        "full_name": "rahul-mallick001/research",
+        "description": "Academic research portfolio and high-resolution computational simulation gallery for interfacial electrohydrodynamics, Taylor deformation, and dielectrophoresis.",
+        "language": "JavaScript / CSS / Python",
+        "stars": 0,
+        "forks": 0,
+        "topics": [
+          "computational-fluid-dynamics",
+          "bem",
+          "lbm",
+          "electrohydrodynamics",
+          "scientific-computing"
+        ],
+        "html_url": "https://github.com/rahul-mallick001/research",
+        "is_pinned": true
+      }
+    ],
+    "auto_fetch_public_repos": true
+  }
+}
