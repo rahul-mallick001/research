@@ -265,15 +265,13 @@
     "github_username": "rahul-mallick001",
     "github_profile_url": "https://github.com/rahul-mallick001",
     "heading": "Open-Source Software & GitHub Repositories",
-    "subheading": "Scientific computing toolchains, boundary element method (BEM) algorithms, and Lattice Boltzmann multiphase solvers hosted on GitHub.",
+    "subheading": "Scientific computing toolchains, open-source software, and developer tools hosted openly on GitHub.",
     "repositories": [
       {
         "name": "research",
         "full_name": "rahul-mallick001/research",
         "description": "Academic research portfolio and high-resolution computational simulation gallery for interfacial electrohydrodynamics, Taylor deformation, and dielectrophoresis.",
-        "language": "JavaScript / CSS / Python",
-        "stars": 0,
-        "forks": 0,
+        "language": "HTML / Python / JavaScript",
         "topics": [
           "computational-fluid-dynamics",
           "bem",
@@ -283,6 +281,75 @@
         ],
         "html_url": "https://github.com/rahul-mallick001/research",
         "is_pinned": true
+      },
+      {
+        "name": "RSS-feed",
+        "full_name": "rahul-mallick001/RSS-feed",
+        "description": "Personal RSS reader that aggregates feeds from academic and tech websites, auto-syncs new posts, and displays full text with images and LaTeX equations.",
+        "language": "JavaScript",
+        "topics": [
+          "rss-reader",
+          "latex-math",
+          "feed-aggregator",
+          "web-app"
+        ],
+        "html_url": "https://github.com/rahul-mallick001/RSS-feed",
+        "is_pinned": true
+      },
+      {
+        "name": "notescan-pro",
+        "full_name": "rahul-mallick001/notescan-pro",
+        "description": "Minimalist document and note scanner application with clean image processing filters and PDF export.",
+        "language": "TypeScript",
+        "topics": [
+          "document-scanner",
+          "image-processing",
+          "pdf-export",
+          "typescript"
+        ],
+        "html_url": "https://github.com/rahul-mallick001/notescan-pro",
+        "is_pinned": false
+      },
+      {
+        "name": "eye-gurdian",
+        "full_name": "rahul-mallick001/eye-gurdian",
+        "description": "Desktop ergonomic assistant and eye-strain guardian to monitor screen break intervals and optimize reading comfort.",
+        "language": "TypeScript",
+        "topics": [
+          "ergonomics",
+          "screen-time",
+          "wellness",
+          "typescript"
+        ],
+        "html_url": "https://github.com/rahul-mallick001/eye-gurdian",
+        "is_pinned": false
+      },
+      {
+        "name": "camera",
+        "full_name": "rahul-mallick001/camera",
+        "description": "Hardware-accelerated camera capture and WebRTC video frame recording tool.",
+        "language": "TypeScript",
+        "topics": [
+          "webrtc",
+          "video-stream",
+          "camera-capture",
+          "typescript"
+        ],
+        "html_url": "https://github.com/rahul-mallick001/camera",
+        "is_pinned": false
+      },
+      {
+        "name": "sacnx",
+        "full_name": "rahul-mallick001/sacnx",
+        "description": "Fast scanning and document acquisition interface with responsive web design.",
+        "language": "HTML / CSS / JS",
+        "topics": [
+          "document-workflow",
+          "scanner",
+          "responsive-ui"
+        ],
+        "html_url": "https://github.com/rahul-mallick001/sacnx",
+        "is_pinned": false
       }
     ],
     "auto_fetch_public_repos": true
